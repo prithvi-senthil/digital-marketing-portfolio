@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="exact-match">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PixelRoot Digital — From Creative Roots to Digital Results</title>
+<meta name="description" content="PixelRoot Digital connects visual creativity with the technical foundation behind websites and digital experiences.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{
+  --bg:#080d16;
+  --surface:#0e1626;
+  --surface-2:#142036;
+  --text:#ffffff;
+  --muted:#8b9bb4;
+  --accent:#00e5bc;
+  --accent-2:#2563eb;
+  --border:rgba(0, 229, 188, 0.15);
+  --shadow:0 20px 50px rgba(0,0,0,0.6);
+  --ink:#05080f;
+  --cream:#ffffff;
+  --on-accent:#080d16;
+  --hi:#00e5bc;
+}
+[data-theme="exact-match"]{
+  --bg:#080d16;--surface:#0e1626;--surface-2:#142036;--text:#ffffff;--muted:#8b9bb4;--accent:#00e5bc;--accent-2:#2563eb;--border:rgba(0, 229, 188, 0.15);--shadow:0 20px 50px rgba(0,0,0,0.6);--ink:#05080f;--cream:#ffffff;--on-accent:#080d16;--hi:#00e5bc;
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  background-color:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.serif{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.025em}
+.mono{font-family:'Inter',sans-serif;letter-spacing:0.06em}
+.grad-text{
+  background:linear-gradient(135deg,#2563eb 0%,#00e5bc 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+  position:relative;
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:color-mix(in srgb,var(--accent) 50%,var(--border));
+  box-shadow:0 24px 55px color-mix(in srgb,var(--accent) 20%,rgba(0,0,0,0.5));
+}
+.glass{
+  background:color-mix(in srgb,var(--bg) 85%,transparent);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.85rem 1.6rem;
+  border-radius:999px;
+  font-weight:600;
+  font-size:.92rem;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease;
+  cursor:pointer;
+  border:1px solid transparent;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{
+  background:var(--accent);
+  color:var(--on-accent);
+  box-shadow:0 0 25px rgba(0, 229, 188, 0.4);
+}
+.btn-line{
+  border-color:var(--border);
+  color:var(--text);
+  background:var(--surface);
+}
+.btn-line:hover{
+  border-color:var(--accent);
+}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  padding:.35rem .9rem;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:var(--surface-2);
+  font-size:.78rem;
+  font-weight:500;
+  color:var(--muted);
+}
+.eyebrow{
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-size:.73rem;
+  color:var(--accent);
+  font-weight:700;
+}
+.gold-line{
+  height:2px;
+  width:56px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  margin:.85rem 0;
+  border-radius:2px;
+}
+.blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(140px);
+  opacity:.15;
+  pointer-events:none;
+}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.dot{
+  display:inline-block;
+  flex:none;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--accent);
+}
+.marquee{display:flex;gap:.85rem;width:max-content;animation:scroll 34s linear infinite}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.wave path{stroke:var(--border);fill:none;stroke-width:1.5}
+.ring{padding:3px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.avatar{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  background:var(--surface-2);
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;
+  font-size:2.75rem;
+  border:4px solid var(--surface);
+}
+.nav-link{color:var(--muted);font-size:.9rem;font-weight:500;transition:color .2s;padding:.25rem 0}
+.nav-link:hover,.nav-link.active{color:var(--text)}
+.nav-link.active{border-bottom:2px solid var(--accent)}
+.dark-sec{background:var(--ink);color:var(--cream)}
+.dark-sec .tcard{
+  background:color-mix(in srgb,var(--cream) 6%,transparent);
+  border:1px solid color-mix(in srgb,var(--cream) 12%,transparent);
+  border-radius:18px;
+  padding:1.6rem;
+  margin-bottom:1.25rem;
+  break-inside:avoid;
+  transition:transform .3s,border-color .3s;
+}
+.dark-sec .tcard:hover{transform:translateY(-4px);border-color:var(--hi)}
+.av{
+  width:2.5rem;
+  height:2.5rem;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--hi);
+  color:var(--ink);
+  flex:none;
+}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s}
+.faq-a>div{overflow:hidden}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-item.open .chev{transform:rotate(45deg)}
+.chev{transition:transform .3s;color:var(--accent)}
+.field{
+  width:100%;
+  padding:.85rem 1rem;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  font-size:.92rem;
+}
+.field:focus{border-color:var(--accent)}
+.err{color:#00e5bc;font-size:.75rem;min-height:1.1rem;margin-top:.2rem}
+.proj-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  background:var(--surface-2);
+  border-bottom:1px solid var(--border);
+}
+.ck{color:var(--accent);font-weight:700}
+.xk{color:var(--muted);font-weight:700}
+.brand-mark{
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  background:var(--accent);
+  color:var(--on-accent);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 12px color-mix(in srgb,var(--accent) 30%,transparent);
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="glass fixed top-0 inset-x-0 z-50">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between" aria-label="Main">
+    <a href="#top" class="flex items-center gap-2.5 text-lg" aria-label="PixelRoot Digital home">
+      <span id="n" class="brand-mark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v6a4 4 0 0 0 4 4h6"/><circle cx="17" cy="7" r="3"/></svg>
+      </span>
+      <span><span class="serif font-bold tracking-tight">PixelRoot</span> <span class="text-xs font-semibold tracking-widest uppercase py-0.5 px-2 rounded-md bg-[var(--surface-2)] text-[var(--muted)] ml-1 border border-[var(--border)]">DIGITAL</span></span>
+    </a>
+    <div class="hidden lg:flex gap-7">
+      <a class="nav-link" href="#services">Services</a><a class="nav-link" href="#work">Work</a><a class="nav-link" href="#reviews">Reviews</a><a class="nav-link" href="#about">About</a><a class="nav-link" href="#pricing">Investment</a><a class="nav-link" href="#contact">Apply</a>
+    </div>
+    <a href="#contact" class="btn btn-gold hidden lg:inline-flex">Request a Proposal</a>
+    <button id="menuBtn" class="lg:hidden p-2 rounded-lg border border-[var(--border)] bg-[var(--surface)]" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </nav>
+  <div id="mobileMenu" class="hidden lg:hidden px-5 pb-5 flex-col gap-3 border-t border-[var(--border)] bg-[var(--surface)]">
+    <a class="nav-link block py-1.5" href="#services">Services</a><a class="nav-link block py-1.5" href="#work">Work</a><a class="nav-link block py-1.5" href="#reviews">Reviews</a><a class="nav-link block py-1.5" href="#about">About</a><a class="nav-link block py-1.5" href="#pricing">Investment</a><a class="nav-link block py-1.5" href="#contact">Apply</a>
+    <a href="#contact" class="btn btn-gold mt-2 justify-center">Request a Proposal</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="relative pt-32 pb-24 px-5 overflow-hidden">
+  <div class="blob w-[500px] h-[500px] -top-32 -left-32" style="background:var(--accent)"></div>
+  <div class="blob w-[500px] h-[500px] top-20 -right-20" style="background:var(--accent-2)"></div>
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative">
+    <div class="reveal lg:col-span-7">
+      <div class="flex flex-wrap items-center gap-2.5 mb-6">
+        <span class="pill"><span class="dot"></span> Booking Q4 / Q1 Partners</span>
+        <span class="pill">PIXEL × ROOT ARCHITECTURE</span>
+      </div>
+      <h1 class="serif text-5xl md:text-6xl lg:text-[4rem] font-bold leading-[1.08]">
+        From Creative Roots to <span class="grad-text">Digital Results.</span>
+      </h1>
+      <p class="mt-6 text-base md:text-lg text-[var(--muted)] max-w-xl leading-relaxed">
+        <strong class="text-[var(--text)] font-semibold">PixelRoot Digital</strong> connects visual creativity with the technical foundation behind high-converting websites, brand systems, and performance growth engines.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-9">
+        <a href="#contact" class="btn btn-gold">Request a Proposal →</a>
+        <a href="#work" class="btn btn-line">Explore Case Studies</a>
+      </div>
+      <p class="mt-6 flex items-center gap-2.5 text-sm font-medium text-[var(--muted)]">
+        <span class="dot"></span> Currently onboarding <span class="text-[var(--text)] font-semibold">2 partner brands</span> this quarter
+      </p>
+      <div class="flex flex-wrap gap-2.5 mt-8">
+        <span class="pill">★ 4.9 Partner Rating</span>
+        <span class="pill">40+ Projects Delivered</span>
+        <span class="pill">Live in 14 Days</span>
+      </div>
+    </div>
+
+    <!-- HERO STUDIO CARD -->
+    <div class="relative lg:col-span-5 reveal" aria-hidden="true">
+      <div class="card p-6 md:p-7 space-y-5 bg-[var(--surface)] border border-[var(--border)] shadow-2xl">
+        <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
+            <span class="mono text-xs text-[var(--muted)] ml-2">pixelroot://growth-engine</span>
+          </div>
+          <span class="pill text-[10px] py-1 px-2" style="background:var(--surface-2);color:var(--accent)">LIVE TELEMETRY</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-[var(--surface-2)] border border-[var(--border)]">
+          <div class="flex items-center justify-between text-xs font-semibold">
+            <span class="text-[var(--accent)] tracking-wider">01 / CREATIVE SURFACE (PIXEL)</span>
+            <span class="text-[var(--muted)] font-normal">Brand · UI/UX · Content</span>
+          </div>
+          <div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-[var(--border)] text-center">
+            <div class="p-2 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
+              <p class="serif text-lg font-bold text-[var(--accent)]">+212%</p>
+              <p class="text-[10px] text-[var(--muted)] mt-0.5">Social Reach</p>
+            </div>
+            <div class="p-2 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
+              <p class="serif text-lg font-bold text-[var(--text)]">3.1x</p>
+              <p class="text-[10px] text-[var(--muted)] mt-0.5">Lead Velocity</p>
+            </div>
+            <div class="p-2 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
+              <p class="serif text-lg font-bold text-[var(--accent-2)]">−47%</p>
+              <p class="text-[10px] text-[var(--muted)] mt-0.5">Cost / Booking</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-2 text-[11px] text-[var(--muted)] font-mono tracking-widest my-1">
+          <span>↕</span> FULL-STACK SYNERGY <span>↕</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-[var(--surface-2)] border border-[var(--border)]">
+          <div class="flex items-center justify-between text-xs font-semibold">
+            <span class="text-[var(--accent)] tracking-wider">02 / TECHNICAL FOUNDATION (ROOT)</span>
+            <span class="text-[var(--muted)] font-normal">Code · SEO · Automation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="py-5 overflow-hidden border-y border-[var(--border)] bg-[var(--surface)]" aria-label="Who we work with">
+  <div class="marquee" aria-hidden="true">
+    <span class="pill">D2C Brands</span><span class="pill">Growing Startups</span><span class="pill">Boutiques &amp; Retail</span><span class="pill">Cafés &amp; Hospitality</span><span class="pill">Salons &amp; Wellness</span><span class="pill">Consultants &amp; Coaches</span><span class="pill">Real Estate</span><span class="pill">Local Businesses</span>
+    <span class="pill">D2C Brands</span><span class="pill">Growing Startups</span><span class="pill">Boutiques &amp; Retail</span><span class="pill">Cafés &amp; Hospitality</span><span class="pill">Salons &amp; Wellness</span><span class="pill">Consultants &amp; Coaches</span><span class="pill">Real Estate</span><span class="pill">Local Businesses</span>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-24 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal max-w-2xl">
+      <p class="eyebrow">What We Do</p>
+      <div class="gold-line"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">Everything your brand needs to be found, trusted, and chosen.</h2>
+      <p class="mt-4 text-[var(--muted)]">Six focused services uniting visual design with dependable technical execution.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <article class="card p-7 reveal">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="3"/><path d="M8 21h8M12 18v3"/></svg></div>
+          <span class="text-xs font-semibold text-[var(--muted)]">Technical Foundation</span>
+        </div>
+        <h3 class="serif text-xl font-bold">Website Design &amp; Development</h3>
+        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Fast, tailored, mobile-first websites designed to turn visitors into bookings, orders, and qualified enquiries.</p>
+      </article>
+      <article class="card p-7 reveal">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6 .8-4.4 4.2 1.1 6L12 16.7 6.7 19.6l1.1-6L3.4 9.4l6-.8z"/></svg></div>
+          <span class="text-xs font-semibold text-[var(--muted)]">Creative Roots</span>
+        </div>
+        <h3 class="serif text-xl font-bold">Brand Strategy &amp; Identity</h3>
+        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Clear positioning, visual systems, and brand voice that make your business the natural first choice.</p>
+      </article>
+      <article class="card p-7 reveal">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-9"/><path d="M15 6h6v6"/></svg></div>
+          <span class="text-xs font-semibold text-[var(--muted)]">Digital Results</span>
+        </div>
+        <h3 class="serif text-xl font-bold">Performance Ads</h3>
+        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Meta and Google campaigns structured around cost-per-lead and real revenue, with every rupee tracked.</p>
+      </article>
+      <article class="card p-7 reveal">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div>
+          <span class="text-xs font-semibold text-[var(--muted)]">Technical Foundation</span>
+        </div>
+        <h3 class="serif text-xl font-bold">Search Engine Optimisation (SEO)</h3>
+        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Show up when customers search for what you offer. Technical site health, Google Business, and content that ranks.</p>
+      </article>
+      <article class="card p-7 reveal">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></div>
+          <span class="text-xs font-semibold text-[var(--muted)]">Creative Roots</span>
+        </div>
+        <h3 class="serif text-xl font-bold">Social Media Management</h3>
+        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">A cohesive, on-brand feed that turns casual scrollers into loyal customers — planning, design, and publishing handled.</p>
+      </article>
+      <article class="card p-7 reveal">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div>
+          <span class="text-xs font-semibold text-[var(--muted)]">Creative Roots</span>
+        </div>
+        <h3 class="serif text-xl font-bold">Content &amp; Lifecycle Design</h3>
+        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Reels, carousels, landing pages, and automated email/WhatsApp journeys crafted to keep customers coming back.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE WORK BEST WITH -->
+<section id="fit" class="py-24 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <p class="eyebrow">Partnership Fit</p>
+      <div class="gold-line mx-auto"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">Who We Work Best With</h2>
+      <p class="mt-4 text-[var(--muted)]">We take on a small number of partners each quarter so every business gets dedicated senior attention.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 mt-12">
+      <article class="card p-8 reveal" style="border-color:var(--accent)">
+        <h3 class="serif text-2xl font-bold"><span class="ck">✓</span> We're a great fit if you are…</h3>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li><span class="ck">✓</span> A growing business or startup doing ₹5L–₹50L+ a year</li>
+          <li><span class="ck">✓</span> Ready to invest in both visual quality and technical foundation</li>
+          <li><span class="ck">✓</span> Open to sharing real numbers and honest feedback</li>
+          <li><span class="ck">✓</span> Looking for a steady 6+ month growth partner</li>
+        </ul>
+      </article>
+      <article class="card p-8 reveal">
+        <h3 class="serif text-2xl font-bold"><span class="xk">✗</span> We're probably not a fit if…</h3>
+        <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
+          <li><span class="xk">✗</span> You're looking only for the cheapest template option</li>
+          <li><span class="xk">✗</span> You want ad results without improving your website experience</li>
+          <li><span class="xk">✗</span> You need 20 revisions and layers of committee approvals</li>
+          <li><span class="xk">✗</span> You want a quick overnight hack rather than lasting growth</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<svg class="wave w-full h-10" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q 75 0 150 20 T 300 20 T 450 20 T 600 20 T 750 20 T 900 20 T 1050 20 T 1200 20"/></svg>
+
+<!-- PROCESS -->
+<section id="process" class="py-24 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <p class="eyebrow">How We Work</p>
+      <div class="gold-line mx-auto"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">Simple steps. Visible results.</h2>
+      <p class="mt-4 text-[var(--muted)]">Clear milestones from initial discovery to measurable business growth.</p>
+    </div>
+    <ol class="grid md:grid-cols-4 gap-6 mt-14 relative">
+      <li class="card p-7 reveal text-center">
+        <div class="w-12 h-12 mx-auto rounded-full ring flex items-center justify-center"><span class="serif font-bold w-full h-full rounded-full flex items-center justify-center bg-[var(--surface)] text-[var(--accent)]">1</span></div>
+        <h3 class="serif text-xl font-bold mt-4">Discover</h3>
+        <p class="text-sm text-[var(--muted)] mt-2">A focused conversation to understand your business model, customers, and goals.</p>
+      </li>
+      <li class="card p-7 reveal text-center">
+        <div class="w-12 h-12 mx-auto rounded-full ring flex items-center justify-center"><span class="serif font-bold w-full h-full rounded-full flex items-center justify-center bg-[var(--surface)] text-[var(--accent)]">2</span></div>
+        <h3 class="serif text-xl font-bold mt-4">Craft</h3>
+        <p class="text-sm text-[var(--muted)] mt-2">Visual direction, website architecture, and campaign plans mapped out for your approval.</p>
+      </li>
+      <li class="card p-7 reveal text-center">
+        <div class="w-12 h-12 mx-auto rounded-full ring flex items-center justify-center"><span class="serif font-bold w-full h-full rounded-full flex items-center justify-center bg-[var(--surface)] text-[var(--accent)]">3</span></div>
+        <h3 class="serif text-xl font-bold mt-4">Launch</h3>
+        <p class="text-sm text-[var(--muted)] mt-2">We build, test, and go live — with analytics, SEO, and lead tracking active from day one.</p>
+      </li>
+      <li class="card p-7 reveal text-center">
+        <div class="w-12 h-12 mx-auto rounded-full ring flex items-center justify-center"><span class="serif font-bold w-full h-full rounded-full flex items-center justify-center bg-[var(--surface)] text-[var(--accent)]">4</span></div>
+        <h3 class="serif text-xl font-bold mt-4">Grow</h3>
+        <p class="text-sm text-[var(--muted)] mt-2">Monthly reporting, creative testing, and ongoing optimisation to keep results climbing.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- WORK / CASE STUDIES -->
+<section id="work" class="py-24 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal max-w-2xl">
+      <p class="eyebrow">Selected Work</p>
+      <div class="gold-line"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">The challenge, the craft, the outcome.</h2>
+      <p class="mt-4 text-[var(--muted)]">Five client partnerships showing how strong creative roots drive real digital results.</p>
+    </div>
+
+    <!-- FEATURED CASE STUDY -->
+    <article class="card overflow-hidden reveal mt-12 grid lg:grid-cols-2">
+      <img class="proj-img !h-full min-h-[280px]" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='600' viewBox='0 0 900 600'><rect width='900' height='600' fill='%230e1626'/><circle cx='760' cy='120' r='180' fill='%232563eb' fill-opacity='0.18'/><circle cx='140' cy='500' r='220' fill='%2300e5bc' fill-opacity='0.15'/><rect x='80' y='80' width='740' height='440' rx='24' fill='%23142036' stroke='%2300e5bc' stroke-opacity='0.35' stroke-width='2'/><rect x='120' y='130' width='160' height='32' rx='16' fill='%23080d16'/><text x='142' y='151' fill='%2300e5bc' font-family='sans-serif' font-weight='bold' font-size='13'>FEATURED CASE STUDY</text><text x='120' y='225' fill='%23ffffff' font-family='sans-serif' font-weight='bold' font-size='42'>Threads &amp; Co. Boutique</text><text x='120' y='270' fill='%238b9bb4' font-family='sans-serif' font-size='22'>Digital Lookbook &amp; WhatsApp Ordering Experience</text><rect x='120' y='330' width='250' height='120' rx='16' fill='%23080d16' stroke='%2300e5bc' stroke-opacity='0.2'/><text x='145' y='390' fill='%2300e5bc' font-family='sans-serif' font-weight='bold' font-size='44'>3.1x</text><text x='145' y='425' fill='%238b9bb4' font-family='sans-serif' font-size='16'>More Customer Enquiries</text><rect x='400' y='330' width='360' height='120' rx='16' fill='%23080d16' stroke='%2300e5bc' stroke-opacity='0.2'/><text x='430' y='375' fill='%23ffffff' font-family='sans-serif' font-weight='bold' font-size='18'>Mobile-First Storefront</text><text x='430' y='405' fill='%238b9bb4' font-family='sans-serif' font-size='15'>Brand Direction · Local Meta Ads · SEO</text></svg>" alt="Threads and Co. boutique website preview">
+      <div class="p-8 md:p-10">
+        <span class="pill" style="background:var(--accent);color:var(--on-accent);border-color:var(--accent)">Featured Case Study</span>
+        <p class="eyebrow mt-4">Partner · Fashion Boutique, Kochi</p>
+        <h3 class="serif text-3xl font-bold mt-1">Threads &amp; Co.</h3>
+        <p class="mt-3 text-sm"><b>The Challenge.</b> A loved neighbourhood boutique with no online presence and every sale depending on walk-ins.</p>
+        <p class="mt-4 text-sm font-semibold">What We Did</p>
+        <ul class="text-sm text-[var(--muted)] space-y-1.5 mt-2 list-disc pl-5">
+          <li>Designed a mobile-first catalogue website with seamless WhatsApp ordering</li>
+          <li>Refined the brand voice, lookbook layout, and photography direction</li>
+          <li>Ran local Meta campaigns and Google Business optimisation</li>
+        </ul>
+        <p class="serif text-6xl font-bold text-[var(--accent)] mt-6">3.1x</p>
+        <p class="text-sm text-[var(--muted)]">more WhatsApp enquiries within 60 days of launch</p>
+      </div>
+    </article>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-6">
+      <article class="card overflow-hidden reveal">
+        <img class="proj-img" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%230e1626'/><rect x='40' y='40' width='520' height='320' rx='20' fill='%23142036' stroke='%2300e5bc' stroke-opacity='0.25' stroke-width='1.5'/><text x='75' y='100' fill='%232563eb' font-family='sans-serif' font-weight='bold' font-size='13'>CONTENT &amp; SOCIAL STRATEGY</text><text x='75' y='150' fill='%23ffffff' font-family='sans-serif' font-weight='bold' font-size='30'>Brew Lane Café</text><path d='M75 280 Q 190 265 270 215 T 510 120' fill='none' stroke='%2300e5bc' stroke-width='4' stroke-linecap='round'/><circle cx='510' cy='120' r='7' fill='%232563eb'/><text x='75' y='325' fill='%238b9bb4' font-family='sans-serif' font-size='16'>+212% Instagram Reach in 90 Days</text></svg>" alt="Café social media preview">
+        <div class="p-6">
+          <span class="pill">Partner · Café &amp; F&amp;B</span>
+          <h3 class="serif text-xl font-bold mt-3">Brew Lane Café</h3>
+          <p class="mt-3 text-sm"><b>The Challenge.</b> Great coffee, but quiet weekends and an inconsistent social presence.</p>
+          <p class="mt-3 text-sm font-semibold">What We Did</p>
+          <ul class="text-sm text-[var(--muted)] space-y-1 mt-1 list-disc pl-5">
+            <li>Built a 30-day content system with reels and stories</li>
+            <li>Launched local weekend event and offer campaigns</li>
+            <li>Set up Google Business and customer review flow</li>
+          </ul>
+          <p class="serif text-5xl font-bold text-[var(--accent)] mt-5">+212%</p>
+          <p class="text-xs text-[var(--muted)]">Instagram reach in 90 days</p>
+        </div>
+      </article>
+      <article class="card overflow-hidden reveal">
+        <img class="proj-img" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%230e1626'/><rect x='40' y='40' width='520' height='320' rx='20' fill='%23142036' stroke='%2300e5bc' stroke-opacity='0.25' stroke-width='1.5'/><text x='75' y='100' fill='%2300e5bc' font-family='sans-serif' font-weight='bold' font-size='13'>PERFORMANCE ADS &amp; LANDING PAGE</text><text x='75' y='150' fill='%23ffffff' font-family='sans-serif' font-weight='bold' font-size='30'>Glow Studio Salon</text><rect x='75' y='185' width='200' height='95' rx='14' fill='%23080d16' stroke='%2300e5bc' stroke-opacity='0.2'/><text x='98' y='245' fill='%2300e5bc' font-family='sans-serif' font-weight='bold' font-size='32'>−47% CPA</text><text x='300' y='240' fill='%238b9bb4' font-family='sans-serif' font-size='17'>Click-to-Book Experience</text></svg>" alt="Salon ads preview">
+        <div class="p-6">
+          <span class="pill">Partner · Beauty &amp; Salon</span>
+          <h3 class="serif text-xl font-bold mt-3">Glow Studio Salon</h3>
+          <p class="mt-3 text-sm"><b>The Challenge.</b> Ad spend was rising while appointment bookings stayed flat.</p>
+          <p class="mt-3 text-sm font-semibold">What We Did</p>
+          <ul class="text-sm text-[var(--muted)] space-y-1 mt-1 list-disc pl-5">
+            <li>Restructured Meta campaigns around confirmed bookings</li>
+            <li>Created service-led short-form video creatives</li>
+            <li>Designed a focused click-to-book landing page</li>
+          </ul>
+          <p class="serif text-5xl font-bold text-[var(--accent)] mt-5">−47%</p>
+          <p class="text-xs text-[var(--muted)]">cost per booking within 8 weeks</p>
+        </div>
+      </article>
+      <article class="card overflow-hidden reveal">
+        <img class="proj-img" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%230e1626'/><rect x='40' y='40' width='520' height='320' rx='20' fill='%23142036' stroke='%2300e5bc' stroke-opacity='0.25' stroke-width='1.5'/><text x='75' y='100' fill='%232563eb' font-family='sans-serif' font-weight='bold' font-size='13'>WEB PLATFORM &amp; EMAIL FLOWS</text><text x='75' y='150' fill='%23ffffff' font-family='sans-serif' font-weight='bold' font-size='30'>Fit With Anaya</text><text x='75' y='230' fill='%2300e5bc' font-family='sans-serif' font-weight='bold' font-size='40'>38 New Members</text><text x='75' y='280' fill='%238b9bb4' font-family='sans-serif' font-size='17'>Signed in the First Launch Month</text></svg>" alt="Coach portfolio preview">
+        <div class="p-6">
+          <span class="pill">Partner · Coaching</span>
+          <h3 class="serif text-xl font-bold mt-3">Fit With Anaya</h3>
+          <p class="mt-3 text-sm"><b>The Challenge.</b> Strong results for existing clients, but no digital system to attract new ones.</p>
+          <p class="mt-3 text-sm font-semibold">What We Did</p>
+          <ul class="text-sm text-[var(--muted)] space-y-1 mt-1 list-disc pl-5">
+            <li>Designed a portfolio website with a guided application flow</li>
+            <li>Produced client transformation story content</li>
+            <li>Automated email follow-ups for every new enquiry</li>
+          </ul>
+          <p class="serif text-5xl font-bold text-[var(--accent)] mt-5">38</p>
+          <p class="text-xs text-[var(--muted)]">paid sign-ups in the first launch month</p>
+        </div>
+      </article>
+      <article class="card overflow-hidden reveal">
+        <img class="proj-img" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%230e1626'/><rect x='40' y='40' width='520' height='320' rx='20' fill='%23142036' stroke='%2300e5bc' stroke-opacity='0.25' stroke-width='1.5'/><text x='75' y='100' fill='%2300e5bc' font-family='sans-serif' font-weight='bold' font-size='13'>TECHNICAL &amp; LOCAL SEO</text><text x='75' y='150' fill='%23ffffff' font-family='sans-serif' font-weight='bold' font-size='30'>Urban Nest Realty</text><text x='75' y='230' fill='%2300e5bc' font-family='sans-serif' font-weight='bold' font-size='40'>12 Page-One Ranks</text><text x='75' y='280' fill='%238b9bb4' font-family='sans-serif' font-size='17'>High-Intent Neighbourhood Keywords in 90 Days</text></svg>" alt="Local SEO results preview">
+        <div class="p-6">
+          <span class="pill">Partner · Real Estate</span>
+          <h3 class="serif text-xl font-bold mt-3">Urban Nest Realty</h3>
+          <p class="mt-3 text-sm"><b>The Challenge.</b> Invisible on Google for the neighbourhoods they served best.</p>
+          <p class="mt-3 text-sm font-semibold">What We Did</p>
+          <ul class="text-sm text-[var(--muted)] space-y-1 mt-1 list-disc pl-5">
+            <li>Rebuilt the website for speed and local search structure</li>
+            <li>Published neighbourhood guides and property content</li>
+            <li>Optimised Google Business profile and local citations</li>
+          </ul>
+          <p class="serif text-5xl font-bold text-[var(--accent)] mt-5">12</p>
+          <p class="text-xs text-[var(--muted)]">local keywords on page one in 90 days</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS (dark section) -->
+<section id="reviews" class="dark-sec py-24 px-5 relative overflow-hidden">
+  <div class="blob w-96 h-96 -top-10 right-0" style="background:var(--hi)"></div>
+  <div class="max-w-6xl mx-auto relative">
+    <div class="reveal max-w-2xl">
+      <p class="eyebrow" style="color:var(--hi)">Partner Reviews</p>
+      <div class="gold-line"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">Numbers our partners can point to.</h2>
+      <p class="mt-4 opacity-75">Real businesses. Thoughtful craft backed by measurable growth.</p>
+    </div>
+    <div class="md:columns-2 lg:columns-3 gap-5 mt-12">
+      <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"WhatsApp enquiries grew 3.1x in 60 days. PixelRoot built a website that finally looks and works the way our boutique feels."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">MN</span><span class="text-sm"><b>Meera Nair</b><br><span class="opacity-60">Owner, Threads &amp; Co. · Kochi</span></span></figcaption></figure>
+      <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"Swatika understood our café brand immediately. Weekend footfall doubled and Instagram reach is up 212% in three months."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">RI</span><span class="text-sm"><b>Rahul Iyer</b><br><span class="opacity-60">Founder, Brew Lane Café · Coimbatore</span></span></figcaption></figure>
+      <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"Our cost per booking fell from ₹620 to ₹328. They treat our marketing budget with the same care as their own."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">PS</span><span class="text-sm"><b>Pooja Sharma</b><br><span class="opacity-60">Owner, Glow Studio Salon · Jaipur</span></span></figcaption></figure>
+      <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"Prithvi built the site in under two weeks. We signed 38 paying members in our very first launch month."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">AK</span><span class="text-sm"><b>Anaya Kapoor</b><br><span class="opacity-60">Founder, Fit With Anaya · Mumbai</span></span></figcaption></figure>
+      <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"Refined brand identity plus automated email flows lifted our repeat orders by 38%. Creative and technical under one roof makes everything smoother."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">KR</span><span class="text-sm"><b>Karthik Reddy</b><br><span class="opacity-60">Co-founder, Kora Naturals · Hyderabad</span></span></figcaption></figure>
+      <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"12 local keywords on page one in 90 days, and qualified leads up 2.4x. Replies always came within hours."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">VM</span><span class="text-sm"><b>Vikram Mehta</b><br><span class="opacity-60">Director, Urban Nest Realty · Pune</span></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- WHY + STATS -->
+<section id="why" class="py-24 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal max-w-2xl">
+      <p class="eyebrow">Why PixelRoot Digital</p>
+      <div class="gold-line"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">Creative roots. Technical backbone.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 mt-10">
+      <div class="card p-7 reveal">
+        <h3 class="serif text-xl font-bold">Design &amp; Engineering Together</h3>
+        <p class="text-sm text-[var(--muted)] mt-2">Visual creativity and technical foundation live under one roof, so nothing gets lost between "marketing" and "web development".</p>
+      </div>
+      <div class="card p-7 reveal">
+        <h3 class="serif text-xl font-bold">Predictable, Transparent Scope</h3>
+        <p class="text-sm text-[var(--muted)] mt-2">Clear engagements in INR with defined deliverables and timelines — no hidden retainers or surprise invoices.</p>
+      </div>
+      <div class="card p-7 reveal">
+        <h3 class="serif text-xl font-bold">Reporting You Can Read</h3>
+        <p class="text-sm text-[var(--muted)] mt-2">Straightforward monthly summaries showing enquiries, conversions, and exactly what we're improving next.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14 text-center">
+      <div class="card p-6 reveal"><p class="serif text-5xl font-bold text-[var(--accent)]"><span class="count" data-to="40" data-suf="+">0</span></p><p class="text-sm text-[var(--muted)] mt-1">Projects Delivered</p></div>
+      <div class="card p-6 reveal"><p class="serif text-5xl font-bold text-[var(--accent)]"><span class="count" data-to="3" data-suf="x">0</span></p><p class="text-sm text-[var(--muted)] mt-1">Avg. ROI Lift</p></div>
+      <div class="card p-6 reveal"><p class="serif text-5xl font-bold text-[var(--accent)]"><span class="count" data-to="92" data-suf="%">0</span></p><p class="text-sm text-[var(--muted)] mt-1">Partner Retention</p></div>
+      <div class="card p-6 reveal"><p class="serif text-5xl font-bold text-[var(--accent)]"><span class="count" data-to="2" data-pre="<" data-suf="h">0</span></p><p class="text-sm text-[var(--muted)] mt-1">Response Time</p></div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave w-full h-10" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q 75 40 150 20 T 300 20 T 450 20 T 600 20 T 750 20 T 900 20 T 1050 20 T 1200 20"/></svg>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal max-w-3xl">
+      <p class="eyebrow">About the Studio</p>
+      <div class="gold-line"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">Two founders. One studio. Your growth.</h2>
+      <p class="mt-4 text-[var(--muted)] leading-relaxed">
+        <strong class="text-[var(--text)]">PixelRoot Digital</strong> connects visual creativity with the technical foundation behind websites and digital experiences. Swatika leads brand strategy, creative direction, and campaigns; Prithvi leads web architecture, UI engineering, technical SEO, and analytics. Together, we take ambitious businesses from creative roots to digital results.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
+      <article class="card p-8 reveal text-center">
+        <div class="ring w-36 h-36 mx-auto">
+          <div class="avatar" role="img" aria-label="Portrait of Swatika">S</div>
+        </div>
+        <h3 class="serif text-2xl font-bold mt-5">Swatika</h3>
+        <p class="text-sm font-semibold text-[var(--accent)]">Founder &amp; Creative Growth Strategist</p>
+        <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">Leads brand strategy, campaigns, content direction, and client partnerships — ensuring every brand voice feels authentic and memorable.</p>
+        <div class="flex flex-wrap justify-center gap-2 mt-5"><span class="pill">Brand Strategy</span><span class="pill">Meta &amp; Google Ads</span><span class="pill">Content Direction</span><span class="pill">Email Marketing</span></div>
+        <div class="flex justify-center gap-5 mt-6 text-sm"><a class="nav-link" href="#contact" aria-label="Swatika on Instagram">Instagram</a><a class="nav-link" href="#contact" aria-label="Swatika on LinkedIn">LinkedIn</a></div>
+      </article>
+      <article class="card p-8 reveal text-center">
+        <div class="ring w-36 h-36 mx-auto">
+          <div class="avatar" role="img" aria-label="Portrait of Prithvi">P</div>
+        </div>
+        <h3 class="serif text-2xl font-bold mt-5">Prithvi</h3>
+        <p class="text-sm font-semibold text-[var(--accent)]">Co-Founder &amp; Technical Lead</p>
+        <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">Owns web architecture, UI design, hosting, technical SEO, analytics, and automation — making sure every digital experience is fast, reliable, and measurable.</p>
+        <div class="flex flex-wrap justify-center gap-2 mt-5"><span class="pill">Web Development</span><span class="pill">UI/UX Design</span><span class="pill">Technical SEO</span><span class="pill">Analytics</span><span class="pill">Automation</span></div>
+        <div class="flex justify-center gap-5 mt-6 text-sm"><a class="nav-link" href="#contact" aria-label="Prithvi on GitHub">GitHub</a><a class="nav-link" href="#contact" aria-label="Prithvi on LinkedIn">LinkedIn</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- OUR PROMISE -->
+<section id="promise" class="py-24 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <p class="eyebrow">Our Promise</p>
+      <div class="gold-line mx-auto"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">Three commitments, in writing.</h2>
+      <p class="mt-4 text-[var(--muted)]">Trust is the foundation of every good partnership, so we put our standards on paper.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 mt-12">
+      <article class="card p-8 reveal text-center"><div class="text-[var(--accent)] mb-4 flex justify-center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3 class="serif text-xl font-bold">Fixed pricing, no surprises</h3><p class="text-sm text-[var(--muted)] mt-2">The proposal we agree on is the price you pay.</p></article>
+      <article class="card p-8 reveal text-center"><div class="text-[var(--accent)] mb-4 flex justify-center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v4M15 12v3"/></svg></div><h3 class="serif text-xl font-bold">You own everything</h3><p class="text-sm text-[var(--muted)] mt-2">Code, domain, design files, ad accounts, and data stay in your name always.</p></article>
+      <article class="card p-8 reveal text-center"><div class="text-[var(--accent)] mb-4 flex justify-center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3 class="serif text-xl font-bold">24-hour response</h3><p class="text-sm text-[var(--muted)] mt-2">Every message answered within one business day by the founders.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING / INVESTMENT -->
+<section id="pricing" class="py-24 px-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <p class="eyebrow">Investment</p>
+      <div class="gold-line mx-auto"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">Three engagements. One clear investment.</h2>
+      <p class="mt-4 text-[var(--muted)]">Every engagement is scoped to your goals and confirmed in a fixed proposal. Amounts in INR, excluding GST.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 mt-12 items-stretch">
+      <article class="card p-8 reveal flex flex-col">
+        <h3 class="serif text-2xl font-bold">Essential</h3>
+        <p class="text-sm text-[var(--muted)]">A signature online foundation.</p>
+        <p class="text-xs uppercase tracking-widest text-[var(--muted)] mt-5">Investment starting from</p>
+        <p class="serif text-4xl font-bold mt-1">₹50,000</p>
+        <p class="text-xs text-[var(--muted)] mt-1">Best for businesses doing ₹5L–₹15L per year</p>
+        <ul class="mt-6 space-y-2.5 text-sm flex-1">
+          <li><span class="ck">✓</span> Up to 6-page custom website</li>
+          <li><span class="ck">✓</span> Brand colours, typography &amp; visual direction</li>
+          <li><span class="ck">✓</span> WhatsApp and enquiry integration</li>
+          <li><span class="ck">✓</span> Foundational on-page &amp; technical SEO</li>
+          <li><span class="ck">✓</span> Google Business &amp; analytics setup</li>
+        </ul>
+        <a href="#contact" class="btn btn-line mt-7 justify-center">Request a Proposal</a>
+      </article>
+      <article class="card p-8 reveal flex flex-col" style="border-color:var(--accent)">
+        <span class="pill self-start" style="background:var(--accent);color:var(--on-accent);border-color:var(--accent)">Most Popular</span>
+        <h3 class="serif text-2xl font-bold mt-3">Signature</h3>
+        <p class="text-sm text-[var(--muted)]">Website plus marketing momentum.</p>
+        <p class="text-xs uppercase tracking-widest text-[var(--muted)] mt-5">Investment starting from</p>
+        <p class="serif text-4xl font-bold mt-1">₹95,000</p>
+        <p class="text-xs text-[var(--muted)] mt-1">Best for businesses doing ₹15L–₹30L per year</p>
+        <ul class="mt-6 space-y-2.5 text-sm flex-1">
+          <li><span class="ck">✓</span> Everything in Essential</li>
+          <li><span class="ck">✓</span> 3 months of social media management</li>
+          <li><span class="ck">✓</span> Meta or Google ads management</li>
+          <li><span class="ck">✓</span> Email marketing setup</li>
+          <li><span class="ck">✓</span> Monthly performance report</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold mt-7 justify-center">Apply to Work With Us</a>
+      </article>
+      <article class="card p-8 reveal flex flex-col">
+        <h3 class="serif text-2xl font-bold">Partner</h3>
+        <p class="text-sm text-[var(--muted)]">Your dedicated digital growth team.</p>
+        <p class="text-xs uppercase tracking-widest text-[var(--muted)] mt-5">Investment starting from</p>
+        <p class="serif text-4xl font-bold mt-1">₹1,75,000</p>
+        <p class="text-xs text-[var(--muted)] mt-1">Best for businesses doing ₹30L–₹50L+ per year</p>
+        <ul class="mt-6 space-y-2.5 text-sm flex-1">
+          <li><span class="ck">✓</span> Everything in Signature</li>
+          <li><span class="ck">✓</span> 6-month growth partnership</li>
+          <li><span class="ck">✓</span> Multi-channel ad campaigns</li>
+          <li><span class="ck">✓</span> Reels and video content</li>
+          <li><span class="ck">✓</span> Automation, CRM &amp; weekly strategy calls</li>
+        </ul>
+        <a href="#contact" class="btn btn-line mt-7 justify-center">Apply to Work With Us</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 px-5">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center">
+      <p class="eyebrow">FAQ</p>
+      <div class="gold-line mx-auto"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">Good questions, straight answers.</h2>
+    </div>
+    <div class="mt-10 space-y-3">
+      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>How long does a website take?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">Most custom websites go live in 10–14 days once we have your content and brand approvals.</p></div></div></div>
+      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>How long are your engagements?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">Website engagements are one-time. Marketing partnerships run for a minimum of six months, because real digital growth compounds.</p></div></div></div>
+      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>Is the ad budget included in your investment?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">No. Ad spend goes directly to Meta or Google from your own account; our fee covers strategy, creative, and ongoing optimisation.</p></div></div></div>
+      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>Will I own my website and accounts?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">Always. Your domain, website files, content, analytics data, and ad accounts belong to you from day one.</p></div></div></div>
+      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>How soon will I see results?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">Ads and conversion-focused websites can bring enquiries within weeks; SEO and organic social build steadily over 3–4 months.</p></div></div></div>
+      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>Can you work with partners outside our city?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">Yes. We work remotely with video calls, shared dashboards, and WhatsApp, so location is never a barrier.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / APPLY -->
+<section id="contact" class="py-24 px-5 relative overflow-hidden">
+  <div class="blob w-96 h-96 bottom-0 left-0" style="background:var(--accent-2)"></div>
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 relative">
+    <div class="reveal">
+      <p class="eyebrow">Apply</p>
+      <div class="gold-line"></div>
+      <h2 class="serif text-4xl md:text-5xl font-bold">Apply to Work With Us</h2>
+      <p class="mt-4 text-[var(--muted)] leading-relaxed">Tell us about your business and goals. If it's a fit, you'll receive a fixed proposal with a clear investment and timeline.</p>
+      <ul class="mt-8 space-y-4 text-sm">
+        <li class="flex items-center gap-3">
+          <svg class="w-5 h-5 shrink-0 text-[var(--accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <a class="underline hover:text-[var(--accent)]" href="mailto:hello@pixelrootdigital.com">hello@pixelrootdigital.com</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <!-- Official Default Green WhatsApp SVG Logo -->
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="#25D366"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zM12.04 20.1c-1.42 0-2.81-.38-4.02-1.1l-.29-.17-3.03.8.81-2.95-.19-.31c-.81-1.31-1.23-2.83-1.23-4.38 0-4.55 3.7-8.25 8.25-8.25 2.2 0 4.27.86 5.82 2.42 1.56 1.56 2.42 3.63 2.42 5.82 0 4.55-3.7 8.25-8.25 8.25zm4.52-6.16c-.25-.13-1.47-.73-1.7-.82-.23-.09-.39-.13-.56.13-.17.25-.64.82-.79.99-.15.17-.3.19-.55.06-.25-.13-1.05-.39-2-1.24-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.43l-.48-.01c-.17 0-.45.06-.69.32-.24.25-.91.89-.91 2.17 0 1.28.93 2.52 1.06 2.7.13.17 1.83 2.8 4.44 3.92.62.27 1.1.43 1.48.55.62.2 1.18.17 1.62.1.49-.08 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/></svg>
+          <a class="underline hover:text-[var(--accent)]" href="https://wa.me/910000000000" target="_blank" rel="noopener">WhatsApp us</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <!-- Official Default Color Instagram SVG Logo -->
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="url(#instagram-gradient-footer)">
+            <defs>
+              <linearGradient id="instagram-gradient-footer" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#F58529" />
+                <stop offset="25%" stop-color="#DD2A7B" />
+                <stop offset="50%" stop-color="#8134AF" />
+                <stop offset="100%" stop-color="#515BD4" />
+              </linearGradient>
+            </defs>
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <a class="underline hover:text-[var(--accent)]" href="#contact">Instagram</a> · <a class="underline hover:text-[var(--accent)]" href="#contact">LinkedIn</a>
+        </li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <form id="form" class="card p-8 space-y-3" novalidate>
+        <div><label for="name" class="text-sm font-medium">Name</label><input id="name" class="field mt-1" type="text" autocomplete="name" placeholder="Your full name"><p class="err" data-for="name"></p></div>
+        <div><label for="email" class="text-sm font-medium">Email</label><input id="email" class="field mt-1" type="email" autocomplete="email" placeholder="you@company.com"><p class="err" data-for="email"></p></div>
+        <div><label for="biz" class="text-sm font-medium">Business</label><input id="biz" class="field mt-1" type="text" placeholder="Your business or startup name"><p class="err" data-for="biz"></p></div>
+        <div><label for="service" class="text-sm font-medium">Service</label><select id="service" class="field mt-1"><option value="">Choose a service</option><option>Website Design &amp; Development</option><option>Brand Strategy &amp; Identity</option><option>Performance Ads</option><option>SEO</option><option>Social Media Management</option><option>Content &amp; Lifecycle Design</option></select><p class="err" data-for="service"></p></div>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div><label for="rev" class="text-sm font-medium">Monthly Revenue Range</label><select id="rev" class="field mt-1"><option value="">Select a range</option><option>Under ₹1L</option><option>₹1L–5L</option><option>₹5L–20L</option><option>₹20L+</option></select><p class="err" data-for="rev"></p></div>
+          <div><label for="budget" class="text-sm font-medium">Project Budget</label><select id="budget" class="field mt-1"><option value="">Select a budget</option><option>Under ₹25K</option><option>₹25K–75K</option><option>₹75K–2L</option><option>₹2L+</option></select><p class="err" data-for="budget"></p></div>
+        </div>
+        <div><label for="msg" class="text-sm font-medium">Message</label><textarea id="msg" rows="4" class="field mt-1" placeholder="Tell us about your project goals and timeline..."></textarea><p class="err" data-for="msg"></p></div>
+        <button class="btn btn-gold w-full justify-center" type="submit">Submit Application</button>
+        <p id="ok" class="text-sm hidden" style="color:var(--accent)" role="status">Thank you! Your application is in — we'll reply within 24 hours.</p>
+      </form>
+      <p class="text-sm text-[var(--muted)] mt-5">We reply to every serious enquiry within 24 hours. If we're not the right fit, we'll tell you honestly and point you somewhere better.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-[var(--border)] bg-[var(--surface)] py-14 px-5">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-sm">
+    <div>
+      <div class="flex items-center gap-2.5 text-lg">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v6a4 4 0 0 0 4 4h6"/><circle cx="17" cy="7" r="3"/></svg>
+        </span>
+        <span><span class="serif font-bold">PixelRoot</span> <span class="text-xs font-semibold tracking-widest uppercase py-0.5 px-2 rounded-md bg-[var(--surface-2)] text-[var(--muted)] ml-1 border border-[var(--border)]">DIGITAL</span></span>
+      </div>
+      <p class="mt-3 font-semibold text-[var(--text)]">From Creative Roots to Digital Results.</p>
+      <p class="mt-2 text-[var(--muted)]">Connecting visual creativity with the technical foundation behind websites and digital experiences.</p>
+    </div>
+    <div><p class="eyebrow mb-3">Quick Links</p><ul class="space-y-2 text-[var(--muted)]"><li><a class="hover:text-[var(--text)]" href="#services">Services</a></li><li><a class="hover:text-[var(--text)]" href="#work">Work</a></li><li><a class="hover:text-[var(--text)]" href="#pricing">Investment</a></li><li><a class="hover:text-[var(--text)]" href="#contact">Apply</a></li></ul></div>
+    <div><p class="eyebrow mb-3">Services</p><ul class="space-y-2 text-[var(--muted)]"><li>Website Design &amp; Development</li><li>Brand Strategy &amp; Identity</li><li>Performance Ads</li><li>Search Engine Optimisation (SEO)</li><li>Social Media Management</li></ul></div>
+  </div>
+  <p class="max-w-6xl mx-auto mt-10 pt-6 border-t border-[var(--border)] text-xs text-[var(--muted)]">© <span id="yr"></span> PixelRoot Digital. All rights reserved.</p>
+</footer>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  // mobile menu
+  var mb=document.getElementById('menuBtn'),mm=document.getElementById('mobileMenu');
+  mb.addEventListener('click',function(){var o=mm.classList.toggle('hidden');mm.classList.toggle('flex',!o);mb.setAttribute('aria-expanded',String(!o))});
+  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.add('hidden');mm.classList.remove('flex');mb.setAttribute('aria-expanded','false')})});
+  // reveal
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){reduce?el.classList.add('in'):io.observe(el)});
+  // counters
+  function count(el){var to=+el.dataset.to,pre=el.dataset.pre||'',suf=el.dataset.suf||'';
+    if(reduce){el.textContent=pre+to+suf;return}
+    var st=null;requestAnimationFrame(function step(ts){st=st||ts;var p=Math.min((ts-st)/1600,1);el.textContent=pre+Math.round(to*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step)})}
+  var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);co.unobserve(e.target)}})},{threshold:.6});
+  document.querySelectorAll('.count').forEach(function(el){co.observe(el)});
+  // active nav
+  var links=document.querySelectorAll('.nav-link[href^="#"]');
+  var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section[id]').forEach(function(s){so.observe(s)});
+  // FAQ
+  document.querySelectorAll('.faq-item button').forEach(function(b){b.addEventListener('click',function(){var it=b.parentElement,o=it.classList.toggle('open');b.setAttribute('aria-expanded',String(o))})});
+  // form
+  var f=document.getElementById('form');
+  f.addEventListener('submit',function(ev){ev.preventDefault();var ok=true;
+    function err(id,m){f.querySelector('[data-for="'+id+'"]').textContent=m;if(m)ok=false}
+    var v=function(id){return document.getElementById(id).value.trim()};
+    err('name',v('name').length<2?'Please enter your name.':'');
+    err('email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))?'':'Please enter a valid email.');
+    err('biz',v('biz')?'':'Tell us your business name.');
+    err('service',v('service')?'':'Please choose a service.');
+    err('rev',v('rev')?'':'Please select a revenue range.');
+    err('budget',v('budget')?'':'Please select a project budget.');
+    err('msg',v('msg').length<10?'Please add a short message.':'');
+    if(ok){f.reset();document.getElementById('ok').classList.remove('hidden')}
+  });
+})();
+</script>
+</body>
+</html>
