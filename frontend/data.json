@@ -1,0 +1,32 @@
+{
+  "about": {
+    "heading": "Building Digital Foundations Rooted in Search Performance.",
+    "description": "Founded in 2026, PixelRoot is a digital growth partner dedicated to helping startups and emerging brands showcase their true value. We understand the unique challenges new businesses face, which is why our approach combines creative design with rigorous search engine standards. We do not just build engaging digital experiences; we engineer them to be found. By integrating deep SEO strategies into our development process, we ensure your brand reaches the right audience at the exact moment they are searching for your solutions.\n\nOur digital foundations are built on two core pillars of organic growth:\n\n• Technical SEO: We build reliable, high-performing technology infrastructures. From optimising Core Web Vitals and server response times to ensuring flawless crawlability, mobile responsiveness, and clean architecture, we make sure search engines can effortlessly index and rank your platform.\n\n• On-Page SEO: We bridge the gap between your brand and your customers' needs. We tailor your website's content, semantic HTML structure, and metadata to align perfectly with user search intent, ensuring your digital identity communicates real business value to both users and algorithms.\n\nWhether you are establishing your digital footprint or scaling an existing business, PixelRoot is committed to being your trusted partner. We don't just build digital solutions—we build the robust, search-optimised foundation for your next stage of growth.",
+    "mission": {
+      "title": "Mission",
+      "text": "Our mission is to empower businesses with innovative digital marketing strategies and reliable technology solutions that drive growth, improve efficiency, and strengthen their digital presence."
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "Our vision is to become a trusted digital and technology partner for businesses worldwide, recognised for innovation, reliability, and excellence."
+    },
+    "team": [
+      {
+        "id": "swathika",
+        "name": "Swathika Janakiraman",
+        "role": "Founder & Creative Growth Strategist",
+        "bio": "Leads brand strategy, campaigns, content direction, and client partnerships — ensuring every brand voice feels authentic and memorable.",
+        "initial": "S",
+        "skills": ["Brand Strategy", "Meta & Google Ads", "Content Direction", "Email Marketing"]
+      },
+      {
+        "id": "prithvi",
+        "name": "Prithvi",
+        "role": "Co-Founder & Technical Lead",
+        "bio": "Owns web architecture, UI design, hosting, technical SEO, analytics, and automation — making sure every digital experience is fast, reliable, and measurable.",
+        "initial": "P",
+        "skills": ["Web Development", "UI/UX Design", "Technical SEO", "Analytics", "Automation", "DevOps"]
+      }
+    ]
+  }
+}

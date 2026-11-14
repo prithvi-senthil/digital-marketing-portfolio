@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, EmailStr
 import motor.motor_asyncio
 import os
@@ -16,14 +18,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# MongoDB Connection (uses standard local or environment URI)
+# MongoDB Connection
 MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URI)
 db = client.pixelroot_db
 applications_collection = db.applications
 visitors_collection = db.visitors
 
-# Pydantic model for application form validation
+# Mount static directories
+app.mount("/assets", StaticFiles(directory="frontend/assets"), name="assets")
+app.mount("/css", StaticFiles(directory="frontend/css"), name="css")
+app.mount("/js", StaticFiles(directory="frontend/js"), name="js")
+
 class ApplicationSchema(BaseModel):
     name: str
     email: EmailStr
@@ -38,10 +44,7 @@ async def submit_application(data: ApplicationSchema):
     try:
         application_data = data.dict()
         application_data["created_at"] = datetime.utcnow()
-        
-        # Insert into MongoDB
         result = await applications_collection.insert_one(application_data)
-        
         return {
             "status": "success",
             "message": "Application submitted successfully",
@@ -50,16 +53,24 @@ async def submit_application(data: ApplicationSchema):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/api/track-visit")
 async def track_visit():
     try:
-        # Simple tracking of site inspection/visits
         await visitors_collection.insert_one({
             "visited_at": datetime.utcnow()
         })
-        return {"status": "tracked"}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"Tracking error: {e}")
+
+# Serve the data.json file
+@app.get("/data.json")
+async def serve_data():
+    return FileResponse("frontend/data.json")
+
+# Serve the main HTML file at the root URL
+@app.get("/")
+async def serve_index():
+    await track_visit()
+    return FileResponse("frontend/index.html")
 
 if __name__ == "__main__":
     import uvicorn

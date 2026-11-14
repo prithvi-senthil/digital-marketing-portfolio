@@ -9,221 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<style>
-:root{
-  --bg:#080d16;
-  --surface:#0e1626;
-  --surface-2:#142036;
-  --text:#ffffff;
-  --muted:#8b9bb4;
-  --accent:#00e5bc;
-  --accent-2:#2563eb;
-  --border:rgba(0, 229, 188, 0.15);
-  --shadow:0 20px 50px rgba(0,0,0,0.6);
-  --ink:#05080f;
-  --cream:#ffffff;
-  --on-accent:#080d16;
-  --hi:#00e5bc;
-}
-[data-theme="exact-match"]{
-  --bg:#080d16;--surface:#0e1626;--surface-2:#142036;--text:#ffffff;--muted:#8b9bb4;--accent:#00e5bc;--accent-2:#2563eb;--border:rgba(0, 229, 188, 0.15);--shadow:0 20px 50px rgba(0,0,0,0.6);--ink:#05080f;--cream:#ffffff;--on-accent:#080d16;--hi:#00e5bc;
-}
 
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{
-  background-color:var(--bg);
-  color:var(--text);
-  font-family:'Inter',sans-serif;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-.serif{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.025em}
-.mono{font-family:'Inter',sans-serif;letter-spacing:0.06em}
-.grad-text{
-  background:linear-gradient(135deg,#2563eb 0%,#00e5bc 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:20px;
-  box-shadow:var(--shadow);
-  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
-  position:relative;
-}
-.card:hover{
-  transform:translateY(-4px);
-  border-color:color-mix(in srgb,var(--accent) 50%,var(--border));
-  box-shadow:0 24px 55px color-mix(in srgb,var(--accent) 20%,rgba(0,0,0,0.5));
-}
-.glass{
-  background:color-mix(in srgb,var(--bg) 85%,transparent);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
-  padding:.85rem 1.6rem;
-  border-radius:999px;
-  font-weight:600;
-  font-size:.92rem;
-  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease;
-  cursor:pointer;
-  border:1px solid transparent;
-}
-.btn:hover{transform:translateY(-2px)}
-.btn-gold{
-  background:var(--accent);
-  color:var(--on-accent);
-  box-shadow:0 0 25px rgba(0, 229, 188, 0.4);
-}
-.btn-line{
-  border-color:var(--border);
-  color:var(--text);
-  background:var(--surface);
-}
-.btn-line:hover{
-  border-color:var(--accent);
-}
-.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
-  outline:2px solid var(--accent);
-  outline-offset:3px;
-}
-.pill{
-  display:inline-flex;
-  align-items:center;
-  gap:.4rem;
-  padding:.35rem .9rem;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:var(--surface-2);
-  font-size:.78rem;
-  font-weight:500;
-  color:var(--muted);
-}
-.eyebrow{
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  font-size:.73rem;
-  color:var(--accent);
-  font-weight:700;
-}
-.gold-line{
-  height:2px;
-  width:56px;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  margin:.85rem 0;
-  border-radius:2px;
-}
-.blob{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(140px);
-  opacity:.15;
-  pointer-events:none;
-}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-.dot{
-  display:inline-block;
-  flex:none;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--accent);
-}
-.marquee{display:flex;gap:.85rem;width:max-content;animation:scroll 34s linear infinite}
-@keyframes scroll{to{transform:translateX(-50%)}}
-.wave path{stroke:var(--border);fill:none;stroke-width:1.5}
-.ring{padding:3px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
-.avatar{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-  background:var(--surface-2);
-  color:var(--accent);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:700;
-  font-size:2.75rem;
-  border:4px solid var(--surface);
-}
-.nav-link{color:var(--muted);font-size:.9rem;font-weight:500;transition:color .2s;padding:.25rem 0}
-.nav-link:hover,.nav-link.active{color:var(--text)}
-.nav-link.active{border-bottom:2px solid var(--accent)}
-.dark-sec{background:var(--ink);color:var(--cream)}
-.dark-sec .tcard{
-  background:color-mix(in srgb,var(--cream) 6%,transparent);
-  border:1px solid color-mix(in srgb,var(--cream) 12%,transparent);
-  border-radius:18px;
-  padding:1.6rem;
-  margin-bottom:1.25rem;
-  break-inside:avoid;
-  transition:transform .3s,border-color .3s;
-}
-.dark-sec .tcard:hover{transform:translateY(-4px);border-color:var(--hi)}
-.av{
-  width:2.5rem;
-  height:2.5rem;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  background:var(--hi);
-  color:var(--ink);
-  flex:none;
-}
-.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s}
-.faq-a>div{overflow:hidden}
-.faq-item.open .faq-a{grid-template-rows:1fr}
-.faq-item.open .chev{transform:rotate(45deg)}
-.chev{transition:transform .3s;color:var(--accent)}
-.field{
-  width:100%;
-  padding:.85rem 1rem;
-  border-radius:12px;
-  border:1px solid var(--border);
-  background:var(--surface);
-  color:var(--text);
-  font-size:.92rem;
-}
-.field:focus{border-color:var(--accent)}
-.err{color:#00e5bc;font-size:.75rem;min-height:1.1rem;margin-top:.2rem}
-.proj-img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  background:var(--surface-2);
-  border-bottom:1px solid var(--border);
-}
-.ck{color:var(--accent);font-weight:700}
-.xk{color:var(--muted);font-weight:700}
-.brand-mark{
-  width:34px;
-  height:34px;
-  border-radius:10px;
-  background:var(--accent);
-  color:var(--on-accent);
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 4px 12px color-mix(in srgb,var(--accent) 30%,transparent);
-}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
-</style>
+<!-- Link to external CSS -->
+<link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
@@ -240,6 +28,16 @@ body{
       <a class="nav-link" href="#services">Services</a><a class="nav-link" href="#work">Work</a><a class="nav-link" href="#reviews">Reviews</a><a class="nav-link" href="#about">About</a><a class="nav-link" href="#pricing">Investment</a><a class="nav-link" href="#contact">Apply</a>
     </div>
     <a href="#contact" class="btn btn-gold hidden lg:inline-flex">Request a Proposal</a>
+    <div class="theme-dropdown hidden lg:block">
+      <button id="themeToggleBtn" class="btn btn-line !p-2.5 rounded-full" aria-label="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+      <div id="themeMenu" class="theme-menu">
+        <button class="theme-option" data-value="light">☀️ Light</button>
+        <button class="theme-option" data-value="dark">🌙 Dark</button>
+        <button class="theme-option" data-value="system">💻 System</button>
+      </div>
+    </div>
     <button id="menuBtn" class="lg:hidden p-2 rounded-lg border border-[var(--border)] bg-[var(--surface)]" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -578,7 +376,7 @@ body{
     </div>
     <div class="md:columns-2 lg:columns-3 gap-5 mt-12">
       <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"WhatsApp enquiries grew 3.1x in 60 days. PixelRoot built a website that finally looks and works the way our boutique feels."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">MN</span><span class="text-sm"><b>Meera Nair</b><br><span class="opacity-60">Owner, Threads &amp; Co. · Kochi</span></span></figcaption></figure>
-      <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"Swatika understood our café brand immediately. Weekend footfall doubled and Instagram reach is up 212% in three months."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">RI</span><span class="text-sm"><b>Rahul Iyer</b><br><span class="opacity-60">Founder, Brew Lane Café · Coimbatore</span></span></figcaption></figure>
+      <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"Swathika understood our café brand immediately. Weekend footfall doubled and Instagram reach is up 212% in three months."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">RI</span><span class="text-sm"><b>Rahul Iyer</b><br><span class="opacity-60">Founder, Brew Lane Café · Coimbatore</span></span></figcaption></figure>
       <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"Our cost per booking fell from ₹620 to ₹328. They treat our marketing budget with the same care as their own."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">PS</span><span class="text-sm"><b>Pooja Sharma</b><br><span class="opacity-60">Owner, Glow Studio Salon · Jaipur</span></span></figcaption></figure>
       <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"Prithvi built the site in under two weeks. We signed 38 paying members in our very first launch month."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">AK</span><span class="text-sm"><b>Anaya Kapoor</b><br><span class="opacity-60">Founder, Fit With Anaya · Mumbai</span></span></figcaption></figure>
       <figure class="tcard reveal"><p style="color:var(--hi)" aria-label="5 stars">★★★★★</p><blockquote class="mt-3 text-sm leading-relaxed">"Refined brand identity plus automated email flows lifted our repeat orders by 38%. Creative and technical under one roof makes everything smoother."</blockquote><figcaption class="flex items-center gap-3 mt-5"><span class="av">KR</span><span class="text-sm"><b>Karthik Reddy</b><br><span class="opacity-60">Co-founder, Kora Naturals · Hyderabad</span></span></figcaption></figure>
@@ -620,39 +418,101 @@ body{
 
 <svg class="wave w-full h-10" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q 75 40 150 20 T 300 20 T 450 20 T 600 20 T 750 20 T 900 20 T 1050 20 T 1200 20"/></svg>
 
-<!-- ABOUT -->
-<section id="about" class="py-24 px-5">
-  <div class="max-w-6xl mx-auto">
-    <div class="reveal max-w-3xl">
+<!-- ABOUT & WHY CHOOSE US -->
+<section id="about" class="py-12 px-5">
+  <!-- Changed space-y-6 to space-y-12 for a clear, 4-line separation between cards -->
+  <div class="max-w-6xl mx-auto space-y-20">
+    
+    <!-- Studio Overview Card -->
+    <div class="card p-6 md:p-8 max-w-4xl mx-auto">
       <p class="eyebrow">About the Studio</p>
       <div class="gold-line"></div>
-      <h2 class="serif text-4xl md:text-5xl font-bold">Two founders. One studio. Your growth.</h2>
-      <p class="mt-4 text-[var(--muted)] leading-relaxed">
-        <strong class="text-[var(--text)]">PixelRoot Digital</strong> connects visual creativity with the technical foundation behind websites and digital experiences. Swatika leads brand strategy, creative direction, and campaigns; Prithvi leads web architecture, UI engineering, technical SEO, and analytics. Together, we take ambitious businesses from creative roots to digital results.
+      
+      <h2 class="serif text-2xl md:text-4xl font-bold tracking-tight mt-2">Building Digital Foundations Rooted in Search Performance.</h2>
+      
+      <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--muted)]">
+        Founded in 2026, PixelRoot is a digital growth partner dedicated to helping startups and emerging brands showcase their true value. We understand the unique challenges new businesses face, which is why our approach combines creative design with rigorous search engine standards.
+      </p>
+
+      <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--muted)]">
+        We do not just build engaging digital experiences; we engineer them to be found. By integrating deep SEO strategies into our development process, we ensure your brand reaches the right audience at the exact moment they are searching for your solutions.
+      </p>
+
+      <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--muted)]">
+        Our approach combines creativity, technology, and strategic thinking to develop solutions tailored to each client's unique goals. From creating engaging digital experiences and building high-performing websites to enabling efficient and reliable technology infrastructure, we focus on delivering solutions that create real business value.
+      </p>
+
+      <p class="mt-4 text-sm md:text-base leading-relaxed text-[var(--muted)]">
+        Whether you are establishing your digital footprint or scaling an existing business, PixelRoot is committed to being your trusted partner. We don't just build digital solutions—we build the robust, search-optimised foundation for your next stage of growth.
       </p>
     </div>
-    <div class="grid md:grid-cols-2 gap-8 mt-12">
-      <article class="card p-8 reveal text-center">
-        <div class="ring w-36 h-36 mx-auto">
-          <div class="avatar" role="img" aria-label="Portrait of Swatika">S</div>
+
+    <!-- Why Choose Pixel Root Block -->
+    <div class="card p-6 md:p-8 max-w-4xl mx-auto border-l-4" style="border-left-color: var(--accent);">
+      <p class="eyebrow">Why Choose Us</p>
+      <div class="gold-line"></div>
+      
+      <h2 class="serif text-2xl md:text-3xl font-bold tracking-tight mt-2">Why Choose Pixel Root Digital Services?</h2>
+      
+      <p class="mt-3 text-sm md:text-base leading-relaxed text-[var(--muted)]">
+        In today's competitive digital world, having a business is just the beginning. Challenges like low online visibility, fewer enquiries, poor engagement, and low conversions can slow down business growth[cite: 5]. <br><strong class="text-[var(--text)]">That's where Pixel Root comes in![cite: 5]</strong>
+      </p>
+
+      <p class="mt-3 text-sm md:text-base leading-relaxed text-[var(--muted)]">
+        We understand your business goals, identify your digital challenges, and create practical strategies to help your brand grow[cite: 5]. From building your online presence to generating meaningful opportunities, we bring creativity, technology, and strategy together[cite: 5].
+      </p>
+
+      <h3 class="serif text-lg font-bold mt-6 mb-3 text-[var(--text)]">What Makes Pixel Root Different?[cite: 5]</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div class="p-3 rounded-xl bg-[var(--surface-2)] border border-[var(--border)]">
+          <p class="font-semibold text-xs md:text-sm text-[var(--text)]">✨ Unique Content Strategy[cite: 5]</p>
         </div>
-        <h3 class="serif text-2xl font-bold mt-5">Swatika</h3>
-        <p class="text-sm font-semibold text-[var(--accent)]">Founder &amp; Creative Growth Strategist</p>
-        <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">Leads brand strategy, campaigns, content direction, and client partnerships — ensuring every brand voice feels authentic and memorable.</p>
-        <div class="flex flex-wrap justify-center gap-2 mt-5"><span class="pill">Brand Strategy</span><span class="pill">Meta &amp; Google Ads</span><span class="pill">Content Direction</span><span class="pill">Email Marketing</span></div>
-        <div class="flex justify-center gap-5 mt-6 text-sm"><a class="nav-link" href="#contact" aria-label="Swatika on Instagram">Instagram</a><a class="nav-link" href="#contact" aria-label="Swatika on LinkedIn">LinkedIn</a></div>
-      </article>
-      <article class="card p-8 reveal text-center">
-        <div class="ring w-36 h-36 mx-auto">
-          <div class="avatar" role="img" aria-label="Portrait of Prithvi">P</div>
+        <div class="p-3 rounded-xl bg-[var(--surface-2)] border border-[var(--border)]">
+          <p class="font-semibold text-xs md:text-sm text-[var(--text)]">📱 Social Media Brand Building[cite: 5]</p>
         </div>
-        <h3 class="serif text-2xl font-bold mt-5">Prithvi</h3>
-        <p class="text-sm font-semibold text-[var(--accent)]">Co-Founder &amp; Technical Lead</p>
-        <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">Owns web architecture, UI design, hosting, technical SEO, analytics, and automation — making sure every digital experience is fast, reliable, and measurable.</p>
-        <div class="flex flex-wrap justify-center gap-2 mt-5"><span class="pill">Web Development</span><span class="pill">UI/UX Design</span><span class="pill">Technical SEO</span><span class="pill">Analytics</span><span class="pill">Automation</span></div>
-        <div class="flex justify-center gap-5 mt-6 text-sm"><a class="nav-link" href="#contact" aria-label="Prithvi on GitHub">GitHub</a><a class="nav-link" href="#contact" aria-label="Prithvi on LinkedIn">LinkedIn</a></div>
-      </article>
+        <div class="p-3 rounded-xl bg-[var(--surface-2)] border border-[var(--border)]">
+          <p class="font-semibold text-xs md:text-sm text-[var(--text)]">🔍 SEO & Online Visibility[cite: 5]</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[var(--surface-2)] border border-[var(--border)]">
+          <p class="font-semibold text-xs md:text-sm text-[var(--text)]">⚡ Technology-Driven Solutions[cite: 5]</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[var(--surface-2)] border border-[var(--border)]">
+          <p class="font-semibold text-xs md:text-sm text-[var(--text)]">🤝 End-to-End Digital Support[cite: 5]</p>
+        </div>
+        <div class="p-3 rounded-xl bg-[var(--surface-2)] border border-[var(--border)]">
+          <p class="font-semibold text-xs md:text-sm text-[var(--text)]">📈 Monthly Audits & Reports[cite: 5]</p>
+        </div>
+      </div>
+
+      <p class="mt-6 text-xs md:text-sm italic text-[var(--muted)]">
+        We believe in transparent communication, long-term partnerships, and continuous improvement[cite: 5]. <br><strong class="text-[var(--text)] not-italic font-semibold">Pixel Root – Your Digital Growth Partner[cite: 5]. Let's build your brand. Let's grow digitally[cite: 5]!</strong>
+      </p>
     </div>
+
+    <!-- Mission & Vision Cards -->
+    <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+      <div class="card p-6 border-l-4" style="border-left-color: var(--accent);">
+        <h3 id="mission-title" class="serif text-xl font-bold text-[var(--accent)]">Mission</h3>
+        <p id="mission-text" class="text-xs md:text-sm text-[var(--muted)] mt-2 leading-relaxed">Our mission is to empower businesses with innovative digital marketing strategies and reliable technology solutions that drive growth, improve efficiency, and strengthen their digital presence.</p>
+      </div>
+      <div class="card p-6 border-l-4" style="border-left-color: var(--accent-2);">
+        <h3 id="vision-title" class="serif text-xl font-bold text-[var(--accent-2)]">Vision</h3>
+        <p id="vision-text" class="text-xs md:text-sm text-[var(--muted)] mt-2 leading-relaxed">Our vision is to become a trusted digital and technology partner for businesses worldwide, recognised for innovation, reliability, and excellence.</p>
+      </div>
+    </div>
+
+    <!-- Team Section Header -->
+    <div class="text-center max-w-2xl mx-auto pt-4">
+      <p class="eyebrow">The Leadership</p>
+      <div class="gold-line mx-auto"></div>
+      <h2 class="serif text-2xl md:text-3xl font-bold">Meet the Founders</h2>
+    </div>
+
+    <!-- Dynamic Team Cards Container -->
+    <div id="team-container" class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <!-- JavaScript will inject cards here -->
+    </div>
+
   </div>
 </section>
 
@@ -827,44 +687,7 @@ body{
   <p class="max-w-6xl mx-auto mt-10 pt-6 border-t border-[var(--border)] text-xs text-[var(--muted)]">© <span id="yr"></span> PixelRoot Digital. All rights reserved.</p>
 </footer>
 
-<script>
-(function(){
-  document.getElementById('yr').textContent=new Date().getFullYear();
-  // mobile menu
-  var mb=document.getElementById('menuBtn'),mm=document.getElementById('mobileMenu');
-  mb.addEventListener('click',function(){var o=mm.classList.toggle('hidden');mm.classList.toggle('flex',!o);mb.setAttribute('aria-expanded',String(!o))});
-  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.add('hidden');mm.classList.remove('flex');mb.setAttribute('aria-expanded','false')})});
-  // reveal
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){reduce?el.classList.add('in'):io.observe(el)});
-  // counters
-  function count(el){var to=+el.dataset.to,pre=el.dataset.pre||'',suf=el.dataset.suf||'';
-    if(reduce){el.textContent=pre+to+suf;return}
-    var st=null;requestAnimationFrame(function step(ts){st=st||ts;var p=Math.min((ts-st)/1600,1);el.textContent=pre+Math.round(to*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step)})}
-  var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);co.unobserve(e.target)}})},{threshold:.6});
-  document.querySelectorAll('.count').forEach(function(el){co.observe(el)});
-  // active nav
-  var links=document.querySelectorAll('.nav-link[href^="#"]');
-  var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
-  document.querySelectorAll('main section[id]').forEach(function(s){so.observe(s)});
-  // FAQ
-  document.querySelectorAll('.faq-item button').forEach(function(b){b.addEventListener('click',function(){var it=b.parentElement,o=it.classList.toggle('open');b.setAttribute('aria-expanded',String(o))})});
-  // form
-  var f=document.getElementById('form');
-  f.addEventListener('submit',function(ev){ev.preventDefault();var ok=true;
-    function err(id,m){f.querySelector('[data-for="'+id+'"]').textContent=m;if(m)ok=false}
-    var v=function(id){return document.getElementById(id).value.trim()};
-    err('name',v('name').length<2?'Please enter your name.':'');
-    err('email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))?'':'Please enter a valid email.');
-    err('biz',v('biz')?'':'Tell us your business name.');
-    err('service',v('service')?'':'Please choose a service.');
-    err('rev',v('rev')?'':'Please select a revenue range.');
-    err('budget',v('budget')?'':'Please select a project budget.');
-    err('msg',v('msg').length<10?'Please add a short message.':'');
-    if(ok){f.reset();document.getElementById('ok').classList.remove('hidden')}
-  });
-})();
-</script>
+<!-- Link to external JavaScript -->
+<script src="/js/app.js"></script>
 </body>
 </html>
