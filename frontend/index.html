@@ -12,39 +12,107 @@
 
 <!-- Link to external CSS -->
 <link rel="stylesheet" href="/css/styles.css">
+<!-- JSON-LD Entity & Service Architecture for AI Search Engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pixelroot.in/#organization",
+      "name": "PixelRoot Digital",
+      "url": "https://pixelroot.in",
+      "logo": "https://pixelroot.in/images/logo.png",
+      "foundingDate": "2026",
+      "description": "Digital growth agency providing Technical SEO, On-Page SEO, Website Development, and Generative Engine Optimization (GEO).",
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "Swathika Janakiraman",
+          "jobTitle": "Creative Growth Strategist"
+        },
+        {
+          "@type": "Person",
+          "name": "Prithvi",
+          "jobTitle": "Technical Lead"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/pixelroot-digital",
+        "https://www.instagram.com/pixelroot"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pixelroot.in/#website",
+      "url": "https://pixelroot.in",
+      "name": "PixelRoot Digital",
+      "publisher": {
+        "@id": "https://pixelroot.in/#organization"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Generative Engine Optimization (GEO)",
+      "provider": {
+        "@id": "https://pixelroot.in/#organization"
+      },
+      "serviceType": "AI Search Engine Optimization",
+      "description": "Optimizing website technical architecture and authority citations for discovery across ChatGPT, Perplexity, and conversational AI search engines."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- NAV -->
-<header class="glass fixed top-0 inset-x-0 z-50">
-  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between" aria-label="Main">
-    <a href="#top" class="flex items-center gap-2.5 text-lg" aria-label="PixelRoot Digital home">
-      <span id="n" class="brand-mark" aria-hidden="true">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v6a4 4 0 0 0 4 4h6"/><circle cx="17" cy="7" r="3"/></svg>
-      </span>
-      <span><span class="serif font-bold tracking-tight">PixelRoot</span> <span class="text-xs font-semibold tracking-widest uppercase py-0.5 px-2 rounded-md bg-[var(--surface-2)] text-[var(--muted)] ml-1 border border-[var(--border)]">DIGITAL</span></span>
+<header class="sticky top-0 z-50 backdrop-blur-md bg-[var(--bg)]/80 border-b border-[var(--border)] py-4 px-6">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+    <!-- BOLD & LARGE HEADER BRAND -->
+    <a href="#" class="flex items-center gap-3.5 group">
+      <img
+        src="/assets/images/logo.jpeg"
+        alt="PixelRoot Logo"
+        class="w-14 h-14 md:w-16 md:h-16 rounded-2xl object-cover border-2 border-[var(--border)] shadow-xl shadow-[var(--accent)]/20 transition-transform duration-200 group-hover:scale-105"
+      />
+      <div class="flex items-baseline gap-2">
+        <span class="serif text-3xl md:text-4xl font-black tracking-tight text-[var(--text)]">
+          PixelRoot
+        </span>
+        <span class="text-[11px] md:text-xs font-black px-2 py-0.5 rounded-md bg-[var(--accent)] text-white tracking-widest uppercase">
+          DIGITAL
+        </span>
+      </div>
     </a>
-    <div class="hidden lg:flex gap-7">
-      <a class="nav-link" href="#services">Services</a><a class="nav-link" href="#work">Work</a><a class="nav-link" href="#reviews">Reviews</a><a class="nav-link" href="#about">About</a><a class="nav-link" href="#pricing">Investment</a><a class="nav-link" href="#contact">Apply</a>
+
+    <!-- Navigation Links -->
+    <div class="hidden lg:flex items-center space-x-10">
+      <a href="#services" class="text-sm font-semibold hover:text-[var(--accent)] transition-colors">Services</a>
+      <a href="#about" class="text-sm font-semibold hover:text-[var(--accent)] transition-colors">About</a>
+      <a href="#blog" class="text-sm font-semibold hover:text-[var(--accent)] transition-colors">Blog</a>
+      <a href="#contact-us" class="text-sm font-semibold hover:text-[var(--accent)] transition-colors">Contact Us</a>
     </div>
-    <a href="#contact" class="btn btn-gold hidden lg:inline-flex">Request a Proposal</a>
-    <div class="theme-dropdown hidden lg:block">
-      <button id="themeToggleBtn" class="btn btn-line !p-2.5 rounded-full" aria-label="Toggle theme">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+
+    <!-- Right Action CTA & Theme Toggle -->
+    <div class="flex items-center gap-4">
+      <button id="openProposalModalBtn" type="button" class="btn btn-primary hidden sm:inline-flex text-sm py-2.5 px-5">
+        Request a Proposal
       </button>
-      <div id="themeMenu" class="theme-menu">
-        <button class="theme-option" data-value="light">☀️ Light</button>
-        <button class="theme-option" data-value="dark">🌙 Dark</button>
-        <button class="theme-option" data-value="system">💻 System</button>
+
+      <!-- Theme Dropdown -->
+      <div class="theme-dropdown relative">
+        <button id="themeToggleBtn" class="btn btn-line !p-2.5 rounded-full" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </button>
+        <div id="themeMenu" class="theme-menu">
+          <button class="theme-option" data-value="light">☀️ Light</button>
+          <button class="theme-option" data-value="dark">🌙 Dark</button>
+          <button class="theme-option" data-value="system">💻 System</button>
+        </div>
       </div>
     </div>
-    <button id="menuBtn" class="lg:hidden p-2 rounded-lg border border-[var(--border)] bg-[var(--surface)]" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-  </nav>
-  <div id="mobileMenu" class="hidden lg:hidden px-5 pb-5 flex-col gap-3 border-t border-[var(--border)] bg-[var(--surface)]">
-    <a class="nav-link block py-1.5" href="#services">Services</a><a class="nav-link block py-1.5" href="#work">Work</a><a class="nav-link block py-1.5" href="#reviews">Reviews</a><a class="nav-link block py-1.5" href="#about">About</a><a class="nav-link block py-1.5" href="#pricing">Investment</a><a class="nav-link block py-1.5" href="#contact">Apply</a>
-    <a href="#contact" class="btn btn-gold mt-2 justify-center">Request a Proposal</a>
   </div>
 </header>
 
@@ -60,10 +128,10 @@
         <span class="pill">PIXEL × ROOT ARCHITECTURE</span>
       </div>
       <h1 class="serif text-5xl md:text-6xl lg:text-[4rem] font-bold leading-[1.08]">
-        From Creative Roots to <span class="grad-text">Digital Results.</span>
+        Engineered to be found across <span class="text-[var(--accent)]">Google</span> and <span class="text-[var(--accent-2)]">AI Engines.</span>
       </h1>
       <p class="mt-6 text-base md:text-lg text-[var(--muted)] max-w-xl leading-relaxed">
-        <strong class="text-[var(--text)] font-semibold">PixelRoot Digital</strong> connects visual creativity with the technical foundation behind high-converting websites, brand systems, and performance growth engines.
+        PixelRoot builds robust digital foundations rooted in Technical SEO and Generative Engine Optimization (GEO), helping your brand surface across traditional search and conversational AI.
       </p>
       <div class="flex flex-wrap gap-4 mt-9">
         <a href="#contact" class="btn btn-gold">Request a Proposal →</a>
@@ -136,64 +204,269 @@
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="py-24 px-5">
-  <div class="max-w-6xl mx-auto">
-    <div class="reveal max-w-2xl">
-      <p class="eyebrow">What We Do</p>
-      <div class="gold-line"></div>
-      <h2 class="serif text-4xl md:text-5xl font-bold">Everything your brand needs to be found, trusted, and chosen.</h2>
-      <p class="mt-4 text-[var(--muted)]">Six focused services uniting visual design with dependable technical execution.</p>
+<!-- SERVICES SECTION -->
+<section id="services" class="py-16 px-5">
+  <div class="max-w-6xl mx-auto space-y-12">
+
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto">
+      <p class="eyebrow">What We Offer</p>
+      <div class="gold-line mx-auto"></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold tracking-tight mt-3">Services We Do</h2>
+      <p class="mt-4 text-base text-[var(--muted)] leading-relaxed">
+        We bring creativity, technology, and strategy together to help your brand grow, reach the right audience, and convert visitors into long-term clients.
+      </p>
     </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-      <article class="card p-7 reveal">
-        <div class="flex items-center justify-between mb-4">
-          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="3"/><path d="M8 21h8M12 18v3"/></svg></div>
-          <span class="text-xs font-semibold text-[var(--muted)]">Technical Foundation</span>
+
+    <!-- SERVICE SHORTCUT SELECTOR CARD -->
+    <div class="max-w-2xl mx-auto my-10 p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] shadow-2xl text-center">
+      <h3 class="serif text-2xl md:text-3xl font-bold tracking-tight text-[var(--text)]">
+        How can we <span class="relative inline-block text-[var(--accent)] underline decoration-wavy decoration-2">help you grow?</span>
+      </h3>
+      <p class="text-xs md:text-sm text-[var(--muted)] mt-2">
+        Select the services you need and let's craft your custom growth roadmap.
+      </p>
+
+      <!-- Checkbox Grid (7 PixelRoot Services) -->
+      <form id="serviceSelectorForm" class="mt-8 space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-left">
+
+          <!-- Option 1 -->
+          <label class="service-pill-label flex items-center gap-3 p-3.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] cursor-pointer hover:border-[var(--accent)] transition-all">
+            <input type="checkbox" name="services" value="Social Media Management" class="w-4 h-4 rounded text-[var(--accent)] focus:ring-[var(--accent)] accent-[var(--accent)]">
+            <span class="text-xs md:text-sm font-semibold text-[var(--text)]">Social Media</span>
+          </label>
+
+          <!-- Option 2 -->
+          <label class="service-pill-label flex items-center gap-3 p-3.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] cursor-pointer hover:border-[var(--accent)] transition-all">
+            <input type="checkbox" name="services" value="LinkedIn Management" class="w-4 h-4 rounded text-[var(--accent)] focus:ring-[var(--accent)] accent-[var(--accent)]">
+            <span class="text-xs md:text-sm font-semibold text-[var(--text)]">LinkedIn</span>
+          </label>
+
+          <!-- Option 3 -->
+          <label class="service-pill-label flex items-center gap-3 p-3.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] cursor-pointer hover:border-[var(--accent)] transition-all">
+            <input type="checkbox" name="services" value="Website Development" class="w-4 h-4 rounded text-[var(--accent)] focus:ring-[var(--accent)] accent-[var(--accent)]">
+            <span class="text-xs md:text-sm font-semibold text-[var(--text)]">Web Dev</span>
+          </label>
+
+          <!-- Option 4 -->
+          <label class="service-pill-label flex items-center gap-3 p-3.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] cursor-pointer hover:border-[var(--accent)] transition-all">
+            <input type="checkbox" name="services" value="Meta Ads Management" class="w-4 h-4 rounded text-[var(--accent)] focus:ring-[var(--accent)] accent-[var(--accent)]">
+            <span class="text-xs md:text-sm font-semibold text-[var(--text)]">Meta Ads</span>
+          </label>
+
+          <!-- Option 5 -->
+          <label class="service-pill-label flex items-center gap-3 p-3.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] cursor-pointer hover:border-[var(--accent)] transition-all">
+            <input type="checkbox" name="services" value="Google Ads Management" class="w-4 h-4 rounded text-[var(--accent)] focus:ring-[var(--accent)] accent-[var(--accent)]">
+            <span class="text-xs md:text-sm font-semibold text-[var(--text)]">Google Ads</span>
+          </label>
+
+          <!-- Option 6 -->
+          <label class="service-pill-label flex items-center gap-3 p-3.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] cursor-pointer hover:border-[var(--accent)] transition-all">
+            <input type="checkbox" name="services" value="Content Marketing" class="w-4 h-4 rounded text-[var(--accent)] focus:ring-[var(--accent)] accent-[var(--accent)]">
+            <span class="text-xs md:text-sm font-semibold text-[var(--text)]">Content</span>
+          </label>
+
+          <!-- Option 7 -->
+          <label class="service-pill-label flex items-center gap-3 p-3.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] cursor-pointer hover:border-[var(--accent)] transition-all">
+            <input type="checkbox" name="services" value="GEO &amp; AI Search Optimization" class="w-4 h-4 rounded text-[var(--accent)] accent-[var(--accent)]">
+            <span class="text-xs md:text-sm font-semibold text-[var(--text)]">GEO &amp; AI Search</span>
+          </label>
+
         </div>
-        <h3 class="serif text-xl font-bold">Website Design &amp; Development</h3>
-        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Fast, tailored, mobile-first websites designed to turn visitors into bookings, orders, and qualified enquiries.</p>
-      </article>
-      <article class="card p-7 reveal">
-        <div class="flex items-center justify-between mb-4">
-          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6 .8-4.4 4.2 1.1 6L12 16.7 6.7 19.6l1.1-6L3.4 9.4l6-.8z"/></svg></div>
-          <span class="text-xs font-semibold text-[var(--muted)]">Creative Roots</span>
+
+        <!-- Get Started CTA Button -->
+        <button type="button" id="getStartedBtn" class="w-full sm:w-auto px-8 py-3 rounded-xl bg-[var(--accent)] text-white font-bold text-sm tracking-wide shadow-lg shadow-[var(--accent)]/30 hover:opacity-95 transition-transform active:scale-95">
+          Get Started
+        </button>
+      </form>
+    </div>
+
+    <!-- Services Grid (7 Core Services) -->
+    <div class="dynamic-auto-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Service 1: Social Media Management -->
+      <div class="card p-7 flex flex-col justify-between border-t-4" style="border-top-color: var(--accent);">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Service 01</span>
+          <h3 class="serif text-xl font-bold mt-2">Social Media Management</h3>
+          <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">
+            At Pixel Root, we turn your social media platforms into meaningful brand experiences through thoughtful content planning, creative storytelling and consistent audience engagement. Every post is organically designed with limited AI usage and delivers you real visual experience.
+          </p>
+          <div class="mt-5">
+            <p class="text-xs font-bold uppercase tracking-wide text-[var(--text)] mb-2">What we deliver:</p>
+            <ul class="text-xs space-y-1.5 text-[var(--muted)]">
+              <li>• Social Media Strategy &amp; Planning</li>
+              <li>• Creative Design &amp; Content Creation</li>
+              <li>• Reels &amp; Short-form Video Content</li>
+              <li>• Content Calendar Management</li>
+              <li>• Caption &amp; Hashtag Strategy</li>
+              <li>• Audience Engagement</li>
+              <li>• Monthly Performance Analysis</li>
+            </ul>
+          </div>
         </div>
-        <h3 class="serif text-xl font-bold">Brand Strategy &amp; Identity</h3>
-        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Clear positioning, visual systems, and brand voice that make your business the natural first choice.</p>
-      </article>
-      <article class="card p-7 reveal">
-        <div class="flex items-center justify-between mb-4">
-          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-9"/><path d="M15 6h6v6"/></svg></div>
-          <span class="text-xs font-semibold text-[var(--muted)]">Digital Results</span>
+        <p class="mt-6 pt-4 border-t border-[var(--border)] text-xs font-semibold italic text-[var(--accent)]">
+          "Less random posting. More purposeful brand communication."
+        </p>
+      </div>
+
+      <!-- Service 2: LinkedIn Management -->
+      <div class="card p-7 flex flex-col justify-between border-t-4" style="border-top-color: var(--accent-2);">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent-2)]">Service 02</span>
+          <h3 class="serif text-xl font-bold mt-2">LinkedIn Management</h3>
+          <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">
+            Pixel Root helps founders &amp; entrepreneurs upgrade business presence on professional platforms like LinkedIn. Our approach brings strategic profile positioning, thoughtful content creation, and consistent professional communication.
+          </p>
+          <div class="mt-5">
+            <p class="text-xs font-bold uppercase tracking-wide text-[var(--text)] mb-2">What we deliver:</p>
+            <ul class="text-xs space-y-1.5 text-[var(--muted)]">
+              <li>• LinkedIn Profile Optimization</li>
+              <li>• Company Page Management</li>
+              <li>• Founder &amp; Executive Personal Branding</li>
+              <li>• LinkedIn Articles and Blogs</li>
+              <li>• Industry Insights &amp; Professional Posts</li>
+              <li>• Content Calendar Management</li>
+              <li>• Audience Engagement &amp; Performance Tracking</li>
+            </ul>
+          </div>
         </div>
-        <h3 class="serif text-xl font-bold">Performance Ads</h3>
-        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Meta and Google campaigns structured around cost-per-lead and real revenue, with every rupee tracked.</p>
-      </article>
-      <article class="card p-7 reveal">
-        <div class="flex items-center justify-between mb-4">
-          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div>
-          <span class="text-xs font-semibold text-[var(--muted)]">Technical Foundation</span>
+        <p class="mt-6 pt-4 border-t border-[var(--border)] text-xs font-semibold italic text-[var(--accent-2)]">
+          "Your expertise deserves a voice that reaches beyond your immediate network."
+        </p>
+      </div>
+
+      <!-- Service 3: Website Development -->
+      <div class="card p-7 flex flex-col justify-between border-t-4" style="border-top-color: var(--accent);">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Service 03</span>
+          <h3 class="serif text-xl font-bold mt-2">Website Development</h3>
+          <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">
+            Pixel Root focuses on developing websites that bring together thoughtful design, smooth navigation, and purposeful functionality. We design user-friendly digital experiences that turn visitors into meaningful business enquiries.
+          </p>
+          <div class="mt-5">
+            <p class="text-xs font-bold uppercase tracking-wide text-[var(--text)] mb-2">What we develop:</p>
+            <ul class="text-xs space-y-1.5 text-[var(--muted)]">
+              <li>• Business Website Development</li>
+              <li>• SEO Friendly Website Structure</li>
+              <li>• Landing Page Development</li>
+              <li>• Website Revamping &amp; Redesign</li>
+              <li>• Creative design and Unique development</li>
+              <li>• Mobile friendly designs</li>
+              <li>• Contact Forms &amp; WhatsApp Integration</li>
+            </ul>
+          </div>
         </div>
-        <h3 class="serif text-xl font-bold">Search Engine Optimisation (SEO)</h3>
-        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Show up when customers search for what you offer. Technical site health, Google Business, and content that ranks.</p>
-      </article>
-      <article class="card p-7 reveal">
-        <div class="flex items-center justify-between mb-4">
-          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></div>
-          <span class="text-xs font-semibold text-[var(--muted)]">Creative Roots</span>
+        <p class="mt-6 pt-4 border-t border-[var(--border)] text-xs font-semibold italic text-[var(--accent)]">
+          "Your website should not just look professional. It should also be easier for your audience to choose your Brand."
+        </p>
+      </div>
+
+      <!-- Service 4: Meta Ads Management -->
+      <div class="card p-7 flex flex-col justify-between border-t-4" style="border-top-color: var(--accent-2);">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent-2)]">Service 04</span>
+          <h3 class="serif text-xl font-bold mt-2">Meta Ads Management</h3>
+          <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">
+            Pixel Root targets and manages advertising campaigns across Facebook and Instagram to help your business generate qualified leads and drive conversions.
+          </p>
+          <div class="mt-5">
+            <p class="text-xs font-bold uppercase tracking-wide text-[var(--text)] mb-2">What we offer:</p>
+            <ul class="text-xs space-y-1.5 text-[var(--muted)]">
+              <li>• Meta Ads Strategy &amp; Planning</li>
+              <li>• Campaign Setup &amp; Management</li>
+              <li>• Audience Research &amp; Targeting</li>
+              <li>• Lead Generation Campaigns</li>
+              <li>• Campaign Monitoring &amp; Optimization</li>
+              <li>• Performance Reporting</li>
+            </ul>
+          </div>
         </div>
-        <h3 class="serif text-xl font-bold">Social Media Management</h3>
-        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">A cohesive, on-brand feed that turns casual scrollers into loyal customers — planning, design, and publishing handled.</p>
-      </article>
-      <article class="card p-7 reveal">
-        <div class="flex items-center justify-between mb-4">
-          <div class="text-[var(--accent)] p-3 rounded-xl bg-[var(--surface-2)]"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div>
-          <span class="text-xs font-semibold text-[var(--muted)]">Creative Roots</span>
+        <p class="mt-6 pt-4 border-t border-[var(--border)] text-xs font-semibold italic text-[var(--accent-2)]">
+          "Your business deserves the right visibility, the right audience, and the right strategy."
+        </p>
+      </div>
+
+      <!-- Service 5: Google Ads Management -->
+      <div class="card p-7 flex flex-col justify-between border-t-4" style="border-top-color: var(--accent);">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Service 05</span>
+          <h3 class="serif text-xl font-bold mt-2">Google Ads Management</h3>
+          <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">
+            Pixel Root helps businesses grow their online reach through strategic Google Ads management. From keyword research to performance tracking, we focus on generating quality leads and using your budget wisely.
+          </p>
+          <div class="mt-5">
+            <p class="text-xs font-bold uppercase tracking-wide text-[var(--text)] mb-2">What we deliver:</p>
+            <ul class="text-xs space-y-1.5 text-[var(--muted)]">
+              <li>• Google Search Ads &amp; Display Advertising</li>
+              <li>• Ad Copywriting</li>
+              <li>• Keyword &amp; Audience Research</li>
+              <li>• Campaign Setup &amp; Management</li>
+              <li>• Conversion Tracking Setup</li>
+              <li>• Campaign Monitoring &amp; Optimization</li>
+              <li>• Performance &amp; ROI Reporting</li>
+            </ul>
+          </div>
         </div>
-        <h3 class="serif text-xl font-bold">Content &amp; Lifecycle Design</h3>
-        <p class="mt-2 text-sm text-[var(--muted)] leading-relaxed">Reels, carousels, landing pages, and automated email/WhatsApp journeys crafted to keep customers coming back.</p>
-      </article>
+        <p class="mt-6 pt-4 border-t border-[var(--border)] text-xs font-semibold italic text-[var(--accent)]">
+          "Reaching the right audience, generating quality leads, and using your budget wisely."
+        </p>
+      </div>
+
+      <!-- Service 6: Content Marketing -->
+      <div class="card p-7 flex flex-col justify-between border-t-4" style="border-top-color: var(--accent-2);">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent-2)]">Service 06</span>
+          <h3 class="serif text-xl font-bold mt-2">Content Marketing</h3>
+          <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">
+            Pixel Root creates meaningful, SEO-friendly content that reflects your brand personality and builds trust, giving your audience a clear reason to choose you.
+          </p>
+          <div class="mt-5">
+            <p class="text-xs font-bold uppercase tracking-wide text-[var(--text)] mb-2">What we deliver:</p>
+            <ul class="text-xs space-y-1.5 text-[var(--muted)]">
+              <li>• Content Strategy &amp; Planning</li>
+              <li>• SEO-focused Blog Writing</li>
+              <li>• Website Content &amp; Copywriting</li>
+              <li>• Brand Storytelling</li>
+              <li>• Educational &amp; Informative Content</li>
+              <li>• Content Performance Analysis</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mt-6 pt-4 border-t border-[var(--border)] text-xs font-semibold italic text-[var(--accent-2)]">
+          "Creative storytelling and strategy that brings your brand closer to its audience."
+        </p>
+      </div>
+
+      <!-- Service 7: Generative Engine Optimization -->
+      <div class="card p-7 flex flex-col justify-between border-t-4" style="border-top-color: var(--accent);">
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Specialized Service</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[var(--surface-2)] text-[var(--accent)]">AI Search</span>
+          </div>
+          <h3 class="serif text-xl font-bold mt-2">Generative Engine Optimization (GEO / AEO)</h3>
+          <p class="text-sm text-[var(--muted)] mt-3 leading-relaxed">
+            Modern search behavior has shifted. PixelRoot aligns your brand's digital presence to be cited and recommended by LLMs such as ChatGPT, Perplexity, Gemini, and Google Search Generative Experience.
+          </p>
+          <div class="mt-5">
+            <p class="text-xs font-bold uppercase tracking-wide text-[var(--text)] mb-2">What we deliver:</p>
+            <ul class="text-xs space-y-1.5 text-[var(--muted)]">
+              <li>• Conversational &amp; Answer-Engine Optimization (AEO)</li>
+              <li>• Structured Entity &amp; Semantic Graph Building</li>
+              <li>• Digital PR &amp; Authority Citation Strategy</li>
+              <li>• Query Fan-Out &amp; Intent Cluster Mapping</li>
+              <li>• Core Web Vitals &amp; Machine Crawlability Audits</li>
+              <li>• AI Visibility &amp; Mention Tracking</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mt-6 pt-4 border-t border-[var(--border)] text-xs font-semibold italic text-[var(--accent)]">
+          "Be the authoritative answer when conversational AI answers your customer."
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -233,36 +506,37 @@
 <svg class="wave w-full h-10" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q 75 0 150 20 T 300 20 T 450 20 T 600 20 T 750 20 T 900 20 T 1050 20 T 1200 20"/></svg>
 
 <!-- PROCESS -->
-<section id="process" class="py-24 px-5">
-  <div class="max-w-6xl mx-auto">
-    <div class="reveal text-center max-w-2xl mx-auto">
-      <p class="eyebrow">How We Work</p>
+<section id="process" class="py-14 w-full border-t border-[var(--border)]">
+  <div class="max-w-6xl mx-auto space-y-10">
+    <div class="text-center max-w-2xl mx-auto">
+      <p class="eyebrow">Our Methodology</p>
       <div class="gold-line mx-auto"></div>
-      <h2 class="serif text-4xl md:text-5xl font-bold">Simple steps. Visible results.</h2>
-      <p class="mt-4 text-[var(--muted)]">Clear milestones from initial discovery to measurable business growth.</p>
+      <h2 class="serif text-3xl md:text-4xl font-bold tracking-tight mt-2">How We Deliver Growth</h2>
+      <p class="text-sm text-[var(--muted)] mt-2">A transparent, data-driven approach to engineering your digital presence.</p>
     </div>
-    <ol class="grid md:grid-cols-4 gap-6 mt-14 relative">
-      <li class="card p-7 reveal text-center">
-        <div class="w-12 h-12 mx-auto rounded-full ring flex items-center justify-center"><span class="serif font-bold w-full h-full rounded-full flex items-center justify-center bg-[var(--surface)] text-[var(--accent)]">1</span></div>
-        <h3 class="serif text-xl font-bold mt-4">Discover</h3>
-        <p class="text-sm text-[var(--muted)] mt-2">A focused conversation to understand your business model, customers, and goals.</p>
-      </li>
-      <li class="card p-7 reveal text-center">
-        <div class="w-12 h-12 mx-auto rounded-full ring flex items-center justify-center"><span class="serif font-bold w-full h-full rounded-full flex items-center justify-center bg-[var(--surface)] text-[var(--accent)]">2</span></div>
-        <h3 class="serif text-xl font-bold mt-4">Craft</h3>
-        <p class="text-sm text-[var(--muted)] mt-2">Visual direction, website architecture, and campaign plans mapped out for your approval.</p>
-      </li>
-      <li class="card p-7 reveal text-center">
-        <div class="w-12 h-12 mx-auto rounded-full ring flex items-center justify-center"><span class="serif font-bold w-full h-full rounded-full flex items-center justify-center bg-[var(--surface)] text-[var(--accent)]">3</span></div>
-        <h3 class="serif text-xl font-bold mt-4">Launch</h3>
-        <p class="text-sm text-[var(--muted)] mt-2">We build, test, and go live — with analytics, SEO, and lead tracking active from day one.</p>
-      </li>
-      <li class="card p-7 reveal text-center">
-        <div class="w-12 h-12 mx-auto rounded-full ring flex items-center justify-center"><span class="serif font-bold w-full h-full rounded-full flex items-center justify-center bg-[var(--surface)] text-[var(--accent)]">4</span></div>
-        <h3 class="serif text-xl font-bold mt-4">Grow</h3>
-        <p class="text-sm text-[var(--muted)] mt-2">Monthly reporting, creative testing, and ongoing optimisation to keep results climbing.</p>
-      </li>
-    </ol>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card p-6">
+        <span class="text-2xl font-bold text-[var(--accent)]">01</span>
+        <h3 class="serif text-lg font-bold mt-2">Audit &amp; Discovery</h3>
+        <p class="text-xs text-[var(--muted)] mt-2 leading-relaxed">We analyze your business niche, target audience intent, and existing search bottlenecks.</p>
+      </div>
+      <div class="card p-6">
+        <span class="text-2xl font-bold text-[var(--accent-2)]">02</span>
+        <h3 class="serif text-lg font-bold mt-2">Technical Foundations</h3>
+        <p class="text-xs text-[var(--muted)] mt-2 leading-relaxed">We build clean code, optimize Core Web Vitals, and establish structured semantic data.</p>
+      </div>
+      <div class="card p-6">
+        <span class="text-2xl font-bold text-[var(--accent)]">03</span>
+        <h3 class="serif text-lg font-bold mt-2">Content &amp; Promotion</h3>
+        <p class="text-xs text-[var(--muted)] mt-2 leading-relaxed">We craft intent-driven copywriting, organic social brand building, and targeted ad campaigns.</p>
+      </div>
+      <div class="card p-6">
+        <span class="text-2xl font-bold text-[var(--accent-2)]">04</span>
+        <h3 class="serif text-lg font-bold mt-2">Measure &amp; Refine</h3>
+        <p class="text-xs text-[var(--muted)] mt-2 leading-relaxed">Transparent monthly reporting, search engine ranking tracking, and conversion improvements.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -594,20 +868,33 @@
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="py-24 px-5">
-  <div class="max-w-3xl mx-auto">
-    <div class="reveal text-center">
-      <p class="eyebrow">FAQ</p>
+<section id="faq" class="py-14 w-full border-t border-[var(--border)] bg-[var(--surface-2)]/30">
+  <div class="max-w-4xl mx-auto space-y-8 px-5">
+    <div class="text-center">
+      <p class="eyebrow">Common Questions</p>
       <div class="gold-line mx-auto"></div>
-      <h2 class="serif text-4xl md:text-5xl font-bold">Good questions, straight answers.</h2>
+      <h2 class="serif text-3xl font-bold tracking-tight mt-2">Frequently Asked Questions</h2>
     </div>
-    <div class="mt-10 space-y-3">
-      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>How long does a website take?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">Most custom websites go live in 10–14 days once we have your content and brand approvals.</p></div></div></div>
-      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>How long are your engagements?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">Website engagements are one-time. Marketing partnerships run for a minimum of six months, because real digital growth compounds.</p></div></div></div>
-      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>Is the ad budget included in your investment?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">No. Ad spend goes directly to Meta or Google from your own account; our fee covers strategy, creative, and ongoing optimisation.</p></div></div></div>
-      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>Will I own my website and accounts?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">Always. Your domain, website files, content, analytics data, and ad accounts belong to you from day one.</p></div></div></div>
-      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>How soon will I see results?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">Ads and conversion-focused websites can bring enquiries within weeks; SEO and organic social build steadily over 3–4 months.</p></div></div></div>
-      <div class="faq-item card reveal"><button class="w-full flex justify-between items-center text-left p-5 font-medium" aria-expanded="false"><span>Can you work with partners outside our city?</span><span class="chev text-2xl" aria-hidden="true">+</span></button><div class="faq-a"><div><p class="px-5 pb-5 text-sm text-[var(--muted)]">Yes. We work remotely with video calls, shared dashboards, and WhatsApp, so location is never a barrier.</p></div></div></div>
+
+    <div class="space-y-4">
+      <div class="card p-5">
+        <h3 class="text-sm md:text-base font-bold text-[var(--text)]">How soon can we expect results from Technical SEO?</h3>
+        <p class="text-xs md:text-sm text-[var(--muted)] mt-2 leading-relaxed">
+          While paid campaigns can generate immediate traffic, organic and technical SEO typically takes 3 to 6 months to mature and establish solid indexing, authority, and compounding search rankings.
+        </p>
+      </div>
+      <div class="card p-5">
+        <h3 class="text-sm md:text-base font-bold text-[var(--text)]">Do you build custom websites or use templates?</h3>
+        <p class="text-xs md:text-sm text-[var(--muted)] mt-2 leading-relaxed">
+          We focus on custom, high-performance web development built with clean semantic HTML and modern frameworks to guarantee 95+ mobile speed scores and seamless search engine crawlability.
+        </p>
+      </div>
+      <div class="card p-5">
+        <h3 class="text-sm md:text-base font-bold text-[var(--text)]">How does PixelRoot handle client communication?</h3>
+        <p class="text-xs md:text-sm text-[var(--muted)] mt-2 leading-relaxed">
+          We provide transparent updates, direct access to the technical team via WhatsApp/Email, and structured monthly audit reports tracking your progress.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -666,26 +953,206 @@
     </div>
   </div>
 </section>
+
+<!-- BLOG / INDUSTRY INSIGHTS SECTION -->
+<section id="blog" class="py-16 px-5 w-full border-t border-[var(--border)]">
+  <div class="max-w-6xl mx-auto space-y-10">
+
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto">
+      <p class="eyebrow">Curated Insights</p>
+      <div class="gold-line mx-auto"></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold tracking-tight mt-2 text-[var(--text)]">
+        Industry Perspectives
+      </h2>
+      <p class="mt-3 text-sm md:text-base text-[var(--muted)] leading-relaxed">
+        Essential reading across Technical SEO, Generative Engine Optimization, and digital growth from top industry pioneers.
+      </p>
+    </div>
+
+    <!-- Dynamic Blog Grid -->
+    <div id="blog-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Populated dynamically via app.js -->
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT US SECTION -->
+<section id="contact-us" class="py-16 px-5 w-full">
+  <div class="max-w-6xl mx-auto space-y-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <p class="eyebrow">Connect With Us</p>
+      <div class="gold-line mx-auto"></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold tracking-tight mt-2">Get in Touch</h2>
+      <p class="mt-3 text-sm md:text-base text-[var(--muted)]">
+        Have questions or want to discuss a project? Reach out to our team directly.
+      </p>
+    </div>
+
+    <!-- Contact Cards Grid (Populated dynamically from contact.txt) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div class="card p-6 text-center">
+        <div class="w-12 h-12 mx-auto rounded-full bg-[var(--surface-2)] flex items-center justify-center text-xl mb-3">📧</div>
+        <h3 class="serif text-lg font-bold text-[var(--text)]">Email</h3>
+        <p class="text-xs text-[var(--muted)] mt-1">Write to us anytime</p>
+        <a id="card-contact-email" href="#" class="inline-block mt-3 text-sm font-semibold text-[var(--accent)] hover:underline break-all">
+          Loading...
+        </a>
+      </div>
+
+      <div class="card p-6 text-center">
+        <div class="w-12 h-12 mx-auto rounded-full bg-[var(--surface-2)] flex items-center justify-center text-xl mb-3">📞</div>
+        <h3 class="serif text-lg font-bold text-[var(--text)]">Call / WhatsApp</h3>
+        <p class="text-xs text-[var(--muted)] mt-1">Direct inquiries &amp; support</p>
+        <a id="card-contact-phone" href="#" class="inline-block mt-3 text-sm font-semibold text-[var(--accent)] hover:underline">
+          Loading...
+        </a>
+      </div>
+
+      <div class="card p-6 text-center">
+        <div class="w-12 h-12 mx-auto rounded-full bg-[var(--surface-2)] flex items-center justify-center text-xl mb-3">📍</div>
+        <h3 class="serif text-lg font-bold text-[var(--text)]">Location</h3>
+        <p class="text-xs text-[var(--muted)] mt-1">Operational base</p>
+        <p id="card-contact-location" class="mt-3 text-sm font-semibold text-[var(--text)]">
+          Loading...
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <!-- FOOTER -->
 <footer class="border-t border-[var(--border)] bg-[var(--surface)] py-14 px-5">
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-sm">
     <div>
-      <div class="flex items-center gap-2.5 text-lg">
-        <span class="brand-mark" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v6a4 4 0 0 0 4 4h6"/><circle cx="17" cy="7" r="3"/></svg>
-        </span>
-        <span><span class="serif font-bold">PixelRoot</span> <span class="text-xs font-semibold tracking-widest uppercase py-0.5 px-2 rounded-md bg-[var(--surface-2)] text-[var(--muted)] ml-1 border border-[var(--border)]">DIGITAL</span></span>
+      <div class="flex items-center gap-3.5">
+        <img
+          src="/assets/images/logo.jpeg"
+          alt="PixelRoot Logo"
+          class="w-12 h-12 md:w-14 md:h-14 rounded-2xl object-cover border border-[var(--border)]"
+        />
+        <div class="flex items-baseline gap-2">
+          <span class="serif text-2xl md:text-3xl font-black tracking-tight text-[var(--text)]">
+            PixelRoot
+          </span>
+          <span class="text-[10px] md:text-xs font-black px-2 py-0.5 rounded-md bg-[var(--surface-2)] text-[var(--accent)] tracking-widest uppercase">
+            DIGITAL
+          </span>
+        </div>
       </div>
       <p class="mt-3 font-semibold text-[var(--text)]">From Creative Roots to Digital Results.</p>
       <p class="mt-2 text-[var(--muted)]">Connecting visual creativity with the technical foundation behind websites and digital experiences.</p>
+      <div id="footer-social-container" class="flex items-center gap-3 pt-2"></div>
     </div>
     <div><p class="eyebrow mb-3">Quick Links</p><ul class="space-y-2 text-[var(--muted)]"><li><a class="hover:text-[var(--text)]" href="#services">Services</a></li><li><a class="hover:text-[var(--text)]" href="#work">Work</a></li><li><a class="hover:text-[var(--text)]" href="#pricing">Investment</a></li><li><a class="hover:text-[var(--text)]" href="#contact">Apply</a></li></ul></div>
-    <div><p class="eyebrow mb-3">Services</p><ul class="space-y-2 text-[var(--muted)]"><li>Website Design &amp; Development</li><li>Brand Strategy &amp; Identity</li><li>Performance Ads</li><li>Search Engine Optimisation (SEO)</li><li>Social Media Management</li></ul></div>
+    <div>
+      <p class="eyebrow mb-3">Services</p>
+      <ul class="space-y-2 text-[var(--muted)]"><li>Website Design &amp; Development</li><li>Brand Strategy &amp; Identity</li><li>Performance Ads</li><li>Search Engine Optimisation (SEO)</li><li>Social Media Management</li></ul>
+      <p class="eyebrow mt-6 mb-3">Get in Touch</p>
+      <ul id="footer-contact-container" class="space-y-2 text-[var(--muted)]"></ul>
+    </div>
   </div>
   <p class="max-w-6xl mx-auto mt-10 pt-6 border-t border-[var(--border)] text-xs text-[var(--muted)]">© <span id="yr"></span> PixelRoot Digital. All rights reserved.</p>
 </footer>
+
+<!-- REQUEST A PROPOSAL MODAL -->
+<div id="proposalModal" role="dialog" aria-modal="true" aria-labelledby="proposalModalTitle" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+  <div class="relative w-full max-w-xl rounded-2xl bg-[var(--surface)] border border-[var(--border)] p-6 md:p-8 shadow-2xl transition-all">
+
+    <!-- Close Button -->
+    <button id="closeProposalModalBtn" type="button" class="absolute top-5 right-5 text-[var(--muted)] hover:text-[var(--text)] text-2xl font-bold focus:outline-none" aria-label="Close modal">
+      &times;
+    </button>
+
+    <!-- Modal Header -->
+    <div class="mb-6">
+      <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Work With Us</span>
+      <h3 id="proposalModalTitle" class="serif text-2xl md:text-3xl font-bold text-[var(--text)] mt-1">Request a Custom Proposal</h3>
+      <p class="text-xs md:text-sm text-[var(--muted)] mt-1">
+        Tell us about your brand and growth goals. We will analyze your requirements and follow up.
+      </p>
+    </div>
+
+    <!-- Proposal Form -->
+    <form id="proposalForm" method="post" class="space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Client Name -->
+        <div>
+          <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="clientName">Full Name *</label>
+          <input type="text" id="clientName" name="name" required placeholder="e.g. Rahul Sharma"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+        </div>
+
+        <!-- Business / Brand Name -->
+        <div>
+          <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="businessName">Business / Brand Name *</label>
+          <input type="text" id="businessName" name="business" required placeholder="e.g. Acme Retail"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Email Address -->
+        <div>
+          <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="clientEmail">Email Address *</label>
+          <input type="email" id="clientEmail" name="email" required placeholder="name@company.com"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+        </div>
+
+        <!-- Phone Number with Indian validation fallback -->
+        <div>
+          <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="clientPhone">Phone Number *</label>
+          <input type="tel" id="clientPhone" name="phone" required pattern="[+]?(?:[0-9][ -]?){9,12}[0-9]" placeholder="+91 98765 43210"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Location / City -->
+        <div>
+          <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="clientLocation">City / Country *</label>
+          <input type="text" id="clientLocation" name="location" required placeholder="e.g. Chennai, India"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+        </div>
+
+        <!-- Monthly Marketing Budget -->
+        <div>
+          <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="clientBudget">Monthly Budget Range</label>
+          <select id="clientBudget" name="budget"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+            <option value="under_25k">Under ₹25,000</option>
+            <option value="25k_50k" selected>₹25,000 - ₹50,000</option>
+            <option value="50k_1L">₹50,000 - ₹1,00,000</option>
+            <option value="above_1L">₹1,00,000+</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Project Scope / Goals -->
+      <div>
+        <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="projectScope">Project Requirements &amp; Scope</label>
+        <textarea id="projectScope" name="notes" rows="3" placeholder="Tell us about the services you need (e.g. SEO, Social Media, Web Development, GEO)..."
+          class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors"></textarea>
+      </div>
+
+      <!-- Submission Status Message -->
+      <div id="proposalStatus" class="hidden text-xs font-semibold text-center py-2 rounded-lg"></div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-end gap-3 pt-2">
+        <button type="button" id="cancelProposalBtn" class="px-5 py-2.5 text-xs font-semibold text-[var(--muted)] hover:text-[var(--text)] transition-colors">
+          Cancel
+        </button>
+        <button type="submit" id="submitProposalBtn" class="px-6 py-2.5 rounded-xl bg-[var(--accent)] text-white text-xs font-bold tracking-wide shadow-lg shadow-[var(--accent)]/30 hover:opacity-95 transition-transform active:scale-95">
+          Submit Proposal Request
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
 
 <!-- Link to external JavaScript -->
 <script src="/js/app.js"></script>

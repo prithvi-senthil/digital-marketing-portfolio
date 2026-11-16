@@ -294,3 +294,13 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text);
   box-shadow: var(--shadow);
 }
+
+/* Service Selection Checkbox Card Styles */
+.service-pill-label:has(input:checked) {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface-2));
+}
+
+.service-pill-label:has(input:checked) span {
+  color: var(--accent);
+}

@@ -28,5 +28,31 @@
         "skills": ["Web Development", "UI/UX Design", "Technical SEO", "Analytics", "Automation", "DevOps"]
       }
     ]
-  }
+  },
+  "blogs": [
+    {
+      "title": "Demystifying Generative Engine Optimization (GEO)",
+      "company": "Search Engine Journal",
+      "category": "AI Search & AEO",
+      "excerpt": "A deep dive into how LLMs and conversational engines synthesize answers, crawl entities, and prioritize high-authority sources.",
+      "readTime": "6 min read",
+      "url": "https://www.searchenginejournal.com"
+    },
+    {
+      "title": "Mastering Core Web Vitals for Modern Web Applications",
+      "company": "Google Web Vitals",
+      "category": "Technical SEO",
+      "excerpt": "Learn how reducing layout shifts and optimizing interaction to next paint (INP) directly impacts search rankings and user retention.",
+      "readTime": "8 min read",
+      "url": "https://web.dev/vitals"
+    },
+    {
+      "title": "The Organic Content Playbook for Fast-Growing Startups",
+      "company": "HubSpot Marketing",
+      "category": "Content Strategy",
+      "excerpt": "Why intentional storytelling and structured intent-matching outperform high-volume generic content creation every single time.",
+      "readTime": "5 min read",
+      "url": "https://blog.hubspot.com/marketing"
+    }
+  ]
 }
