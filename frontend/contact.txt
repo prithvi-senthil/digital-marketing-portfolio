@@ -1,5 +1,5 @@
 email=hello@pixelroot.in
 phone=+91 98765 43210
-location=Chennai / Ambattur, Tamil Nadu, India
+location=Chennai, Tamil Nadu, India
 linkedin=https://linkedin.com/company/pixelroot-digital
 instagram=https://instagram.com/pixelroot.digital
