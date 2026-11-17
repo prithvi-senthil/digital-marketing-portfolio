@@ -49,6 +49,7 @@ themeOptions.forEach((option) => {
 document.addEventListener("DOMContentLoaded", () => {
   const proposalModal = document.getElementById("proposalModal");
   const openBtn = document.getElementById("openProposalModalBtn");
+  const serviceRoadmapBtn = document.getElementById("serviceRoadmapBtn");
   const closeBtn = document.getElementById("closeProposalModalBtn");
   const cancelBtn = document.getElementById("cancelProposalBtn");
   const proposalForm = document.getElementById("proposalForm");
@@ -59,22 +60,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const originalBodyOverflow = document.body.style.overflow;
   let closeTimeout;
+  let modalOpener = openBtn;
 
   const closeModal = () => {
     proposalModal.classList.add("hidden");
     document.body.style.overflow = originalBodyOverflow;
     if (proposalStatus) proposalStatus.classList.add("hidden");
     if (closeTimeout) clearTimeout(closeTimeout);
-    if (openBtn) openBtn.focus();
+    if (modalOpener) modalOpener.focus();
+  };
+
+  const openModal = (opener) => {
+    if (closeTimeout) clearTimeout(closeTimeout);
+    modalOpener = opener;
+    proposalModal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    const nameField = document.getElementById("clientName");
+    if (nameField) nameField.focus();
   };
 
   if (openBtn) {
-    openBtn.addEventListener("click", () => {
-      if (closeTimeout) clearTimeout(closeTimeout);
-      proposalModal.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
-      const nameField = document.getElementById("clientName");
-      if (nameField) nameField.focus();
+    openBtn.addEventListener("click", () => openModal(openBtn));
+  }
+  if (serviceRoadmapBtn) {
+    serviceRoadmapBtn.addEventListener("click", () => {
+      const selectedServices = Array.from(
+        document.querySelectorAll('#serviceSelectorForm input[name="services"]:checked')
+      ).map((checkbox) => checkbox.value);
+      const scopeField = document.getElementById("projectScope");
+
+      if (scopeField && selectedServices.length > 0) {
+        scopeField.value = `Selected Services: ${selectedServices.join(", ")}`;
+      }
+
+      openModal(serviceRoadmapBtn);
     });
   }
   if (closeBtn) closeBtn.addEventListener("click", closeModal);
@@ -140,29 +159,29 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// --- SERVICE SELECTOR CARD BEHAVIOR ---
-const getStartedBtn = document.getElementById("getStartedBtn");
-if (getStartedBtn) {
-  getStartedBtn.addEventListener("click", () => {
-    const selectedServices = Array.from(
-      document.querySelectorAll('#serviceSelectorForm input[name="services"]:checked')
-    ).map((checkbox) => checkbox.value);
+// Ensure internal route links open in the same tab, only hash anchors smooth scroll
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("a");
+  if (!link) return;
 
-    const messageField =
-      document.getElementById("notes") ||
-      document.querySelector("textarea[name='notes']") ||
-      document.getElementById("msg");
-    if (messageField && selectedServices.length > 0) {
-      messageField.value = `Selected Services: ${selectedServices.join(", ")}`;
-    }
+  const href = link.getAttribute("href");
 
-    const targetSection =
-      document.getElementById("apply") || document.getElementById("contact");
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
+  if (link.target === "_blank") {
+    return;
+  }
+
+  if (href && !href.startsWith("#")) {
+    return;
+  }
+
+  if (href && href.startsWith("#") && href.length > 1) {
+    const targetElement = document.querySelector(href);
+    if (targetElement) {
+      e.preventDefault();
+      targetElement.scrollIntoView({ behavior: "smooth" });
     }
-  });
-}
+  }
+});
 
 // Listen for system theme changes if set to system
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
@@ -193,13 +212,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function populateBlogs(blogs) {
   const blogContainer = document.getElementById("blog-container");
-  if (!blogContainer || !Array.isArray(blogs)) return;
+  if (!blogContainer) return;
 
   blogContainer.textContent = "";
+  if (!Array.isArray(blogs) || blogs.length === 0) {
+    const emptyState = document.createElement("div");
+    emptyState.className = "col-span-full text-center py-12 text-sm text-[var(--muted)]";
+    emptyState.textContent = "No articles published yet. Check back soon!";
+    blogContainer.append(emptyState);
+    return;
+  }
+
   blogs.forEach((blog) => {
     if (
       !blog ||
-      !["title", "company", "category", "excerpt", "url"].every(
+      !["title", "excerpt", "url"].every(
         (key) => typeof blog[key] === "string" && blog[key].trim()
       )
     ) {
@@ -220,7 +247,7 @@ function populateBlogs(blogs) {
     }
 
     const article = document.createElement("article");
-    article.className = "card p-6 flex flex-col justify-between group hover:border-[var(--accent)] transition-all";
+    article.className = "p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] flex flex-col justify-between hover:border-[var(--accent)] transition-all duration-200 shadow-sm hover:shadow-lg hover:shadow-[var(--accent)]/5 group";
 
     const content = document.createElement("div");
     const details = document.createElement("div");
@@ -228,7 +255,10 @@ function populateBlogs(blogs) {
 
     const category = document.createElement("span");
     category.className = "font-bold px-2.5 py-1 rounded-md bg-[var(--surface-2)] text-[var(--accent)] tracking-wider uppercase";
-    category.textContent = blog.category;
+    category.textContent =
+      typeof blog.category === "string" && blog.category.trim()
+        ? blog.category
+        : "Industry Insight";
     details.append(category);
 
     const readTime = document.createElement("span");
@@ -246,8 +276,12 @@ function populateBlogs(blogs) {
     content.append(title);
 
     const company = document.createElement("p");
-    company.className = "text-xs font-semibold text-[var(--accent-2)] mt-1";
-    company.textContent = `Source: ${blog.company}`;
+    company.className = "text-xs font-semibold text-[var(--accent-2)] mt-2";
+    company.textContent = `Source: ${
+      typeof blog.company === "string" && blog.company.trim()
+        ? blog.company
+        : "Curated Resource"
+    }`;
     content.append(company);
 
     const excerpt = document.createElement("p");
@@ -289,6 +323,102 @@ function populateBlogs(blogs) {
     blogContainer.append(article);
   });
 }
+
+// --- DYNAMIC FAQ LOADER ---
+async function renderTextBasedFAQs() {
+  const container = document.getElementById("faq-dynamic-container");
+  if (!container) return;
+
+  container.setAttribute("aria-busy", "true");
+  try {
+    const response = await fetch(`/api/faqs?ts=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`FAQ request failed with status ${response.status}.`);
+    }
+
+    const faqs = await response.json();
+    if (!Array.isArray(faqs)) {
+      throw new Error("FAQ endpoint returned an invalid response.");
+    }
+
+    container.textContent = "";
+    if (faqs.length === 0) {
+      const emptyState = document.createElement("div");
+      emptyState.className = "card p-5 text-center text-xs text-[var(--muted)]";
+      emptyState.textContent = "No FAQs available at the moment.";
+      container.append(emptyState);
+      return;
+    }
+
+    faqs.forEach((item) => {
+      if (
+        !item ||
+        typeof item.question !== "string" ||
+        !item.question.trim() ||
+        typeof item.answer !== "string"
+      ) {
+        console.error("Skipping incomplete FAQ entry:", item);
+        return;
+      }
+
+      const details = document.createElement("details");
+      details.className = "card p-5 border border-[var(--border)] rounded-2xl group transition-all duration-200 cursor-pointer hover:border-[var(--accent)]";
+      details.open = container.childElementCount === 0;
+
+      const summary = document.createElement("summary");
+      summary.className = "flex items-center justify-between font-bold text-sm sm:text-base text-[var(--text)] list-none select-none";
+
+      const question = document.createElement("span");
+      question.textContent = item.question;
+      summary.append(question);
+
+      const toggle = document.createElement("span");
+      toggle.className = "text-[var(--accent)] text-lg transition-transform duration-200 group-open:rotate-45";
+      toggle.textContent = "+";
+      summary.append(toggle);
+      details.append(summary);
+
+      const answerContainer = document.createElement("div");
+      answerContainer.className = "mt-3 text-xs sm:text-sm text-[var(--muted)] leading-relaxed border-t border-[var(--border)]/60 pt-3 space-y-3";
+
+      const answer = document.createElement("p");
+      answer.textContent = item.answer;
+      answerContainer.append(answer);
+
+      if (
+        typeof item.linkText === "string" &&
+        item.linkText.trim() &&
+        typeof item.linkUrl === "string" &&
+        item.linkUrl.startsWith("/") &&
+        !item.linkUrl.startsWith("//")
+      ) {
+        const linkWrapper = document.createElement("div");
+        const link = document.createElement("a");
+        link.href = item.linkUrl;
+        link.className = "inline-flex items-center gap-1.5 text-xs font-bold text-[var(--accent)] hover:underline";
+        link.textContent = item.linkText;
+        linkWrapper.append(link);
+        answerContainer.append(linkWrapper);
+      }
+
+      details.append(answerContainer);
+      container.append(details);
+    });
+  } catch (error) {
+    console.error("Error reading FAQ endpoint:", error);
+    container.textContent = "";
+    const errorState = document.createElement("div");
+    errorState.className = "card p-5 text-center text-xs text-rose-500";
+    errorState.textContent = "Failed to load FAQs.";
+    container.append(errorState);
+  } finally {
+    container.setAttribute("aria-busy", "false");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderTextBasedFAQs();
+});
 
 function populateTeamSection(teamData) {
   const teamContainer = document.getElementById("team-container");

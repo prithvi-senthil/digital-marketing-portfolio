@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us & Engineering Vision | PixelRoot Digital</title>
+  <meta name="description" content="Meet the founders and discover the engineering philosophy behind PixelRoot Digital — bridging high-velocity web architecture with strategic brand growth.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-[var(--bg)] text-[var(--text)] transition-colors duration-200">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[var(--bg)]/80 border-b border-[var(--border)] py-4 px-6 sm:px-10 lg:px-16">
+    <div class="w-full max-w-[1600px] mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3.5 group">
+        <img src="/assets/images/logo.jpeg" alt="PixelRoot Logo" class="w-12 h-12 md:w-14 md:h-14 rounded-2xl object-cover border-2 border-[var(--border)] shadow-lg shadow-[var(--accent)]/20 transition-transform group-hover:scale-105" />
+        <div class="flex items-baseline gap-2">
+          <span class="serif text-2xl md:text-3xl font-black tracking-tight text-[var(--text)]">PixelRoot</span>
+          <span class="text-[10px] md:text-xs font-black px-2 py-0.5 rounded-md bg-[var(--accent)] text-white tracking-widest uppercase">DIGITAL</span>
+        </div>
+      </a>
+      
+      <nav class="hidden lg:flex items-center space-x-10">
+        <a href="/services" class="text-sm font-semibold hover:text-[var(--accent)] transition-colors">Services</a>
+        <a href="/about" class="text-sm font-semibold text-[var(--accent)] transition-colors">About</a>
+        <a href="/blogs" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold hover:text-[var(--accent)] transition-colors">Blogs</a>
+        <a href="/contact" class="text-sm font-semibold hover:text-[var(--accent)] transition-colors">Contact Us</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="/contact" class="btn btn-primary hidden sm:inline-flex text-sm py-2.5 px-5">Request a Proposal</a>
+        
+        <div class="theme-dropdown relative">
+          <button id="themeToggleBtn" class="btn btn-line !p-2.5 rounded-full" aria-label="Toggle theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </button>
+          <div id="themeMenu" class="theme-menu">
+            <button class="theme-option" data-value="light">☀️ Light</button>
+            <button class="theme-option" data-value="dark">🌙 Dark</button>
+            <button class="theme-option" data-value="system">💻 System</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="py-12 md:py-20 px-6 sm:px-10 lg:px-16 w-full space-y-24">
+    <div class="w-full max-w-[1600px] mx-auto space-y-20">
+      
+      <!-- HERO SECTION -->
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface-2)] border border-[var(--border)]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></span>
+          <span class="text-[11px] font-bold tracking-widest uppercase text-[var(--accent)]">About the Studio</span>
+        </div>
+        <h1 class="serif text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[var(--text)]">
+          Creative Roots. Technical Backbone.
+        </h1>
+        <p class="text-sm md:text-base text-[var(--muted)] leading-relaxed">
+          Founded in 2026, PixelRoot combines creative brand strategy with full-stack engineering standards to build digital platforms engineered to endure.
+        </p>
+      </div>
+
+      <!-- CORE MANIFESTO & PRINCIPLES -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div class="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-[var(--surface)] border border-[var(--border)] space-y-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Our Philosophy</span>
+            <h2 class="serif text-2xl sm:text-3xl font-extrabold text-[var(--text)] leading-snug">
+              We do not just build digital interfaces; we engineer them to be discovered.
+            </h2>
+            <p class="text-sm text-[var(--muted)] leading-relaxed">
+              Most businesses struggle with an invisible wall between "creative marketing" and "technical web development." Agencies produce websites that look decent but crawl slowly, break under mobile traffic, and lack structured entity markup.
+            </p>
+            <p class="text-sm text-[var(--muted)] leading-relaxed">
+              PixelRoot resolves this divide. By integrating deep Technical SEO and Generative Engine Optimization (GEO) directly into custom codebases, we ensure your business ranks across both conventional search algorithms and next-generation AI answer engines.
+            </p>
+          </div>
+          
+          <div class="pt-6 border-t border-[var(--border)] grid grid-cols-3 gap-4 text-center">
+            <div>
+              <p class="serif text-2xl sm:text-3xl font-black text-[var(--accent)]">100%</p>
+              <p class="text-[11px] text-[var(--muted)] mt-1">IP &amp; Code Ownership</p>
+            </div>
+            <div>
+              <p class="serif text-2xl sm:text-3xl font-black text-[var(--accent-2)]">&lt;400ms</p>
+              <p class="text-[11px] text-[var(--muted)] mt-1">Server Latency Target</p>
+            </div>
+            <div>
+              <p class="serif text-2xl sm:text-3xl font-black text-[var(--accent)]">98+</p>
+              <p class="text-[11px] text-[var(--muted)] mt-1">Core Web Vitals</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 grid grid-cols-1 gap-6">
+          <div class="p-6 sm:p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] border-l-4 border-l-[var(--accent)] space-y-2">
+            <h3 class="serif text-xl font-bold text-[var(--accent)]">Our Mission</h3>
+            <p class="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+              To empower startups and growing enterprises with lightweight, search-prioritized web technology and high-ROI acquisition funnels that drive durable, compounding organic inquiries.
+            </p>
+          </div>
+
+          <div class="p-6 sm:p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] border-l-4 border-l-[var(--accent-2)] space-y-2">
+            <h3 class="serif text-xl font-bold text-[var(--accent-2)]">Our Vision</h3>
+            <p class="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+              To become the benchmark boutique for technical search performance and generative AI discovery, proving that lean engineering always outperforms bloated template retainers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEADERSHIP CARDS -->
+      <div class="space-y-8">
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">The Leadership</span>
+          <h2 class="serif text-3xl font-bold tracking-tight text-[var(--text)]">Meet the Founders</h2>
+          <p class="text-xs sm:text-sm text-[var(--muted)]">Every PixelRoot client works directly with the founders executing their strategy.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          
+          <!-- Swathika -->
+          <div class="p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)] transition-all shadow-sm space-y-5">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center text-xl font-bold text-[var(--accent)] shadow-md">
+                S
+              </div>
+              <div>
+                <h3 class="serif text-2xl font-bold text-[var(--text)]">Swathika Janakiraman</h3>
+                <p class="text-xs uppercase tracking-wider font-semibold text-[var(--accent)] mt-0.5">Founder &amp; Creative Growth Strategist</p>
+              </div>
+            </div>
+            
+            <p class="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+              Spearheads brand positioning, creative narrative design, organic social media architectures, and ad creative direction. Swathika ensures every brand message communicates distinct personality, resonates with intended target audiences, and turns passive attention into active inquiries.
+            </p>
+
+            <div class="pt-4 border-t border-[var(--border)] flex flex-wrap gap-2">
+              <span class="text-xs px-3 py-1 rounded-full bg-[var(--surface-2)] text-[var(--text)] border border-[var(--border)] font-medium">Brand Strategy</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-[var(--surface-2)] text-[var(--text)] border border-[var(--border)] font-medium">Paid Acquisition</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-[var(--surface-2)] text-[var(--text)] border border-[var(--border)] font-medium">Content Direction</span>
+            </div>
+          </div>
+
+          <!-- Prithvi -->
+          <div class="p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent-2)] transition-all shadow-sm space-y-5">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center text-xl font-bold text-[var(--accent-2)] shadow-md">
+                P
+              </div>
+              <div>
+                <h3 class="serif text-2xl font-bold text-[var(--text)]">Prithvi Senthil</h3>
+                <p class="text-xs uppercase tracking-wider font-semibold text-[var(--accent-2)] mt-0.5">Co-Founder &amp; Technical Lead</p>
+              </div>
+            </div>
+            
+            <p class="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+              Directs web engineering, systems architecture, Technical SEO diagnostics, and Generative Engine Optimization (GEO/AEO). Prithvi constructs high-velocity applications using clean semantic protocols, structured JSON-LD entity schema, and zero-bloat modern stacks.
+            </p>
+
+            <div class="pt-4 border-t border-[var(--border)] flex flex-wrap gap-2">
+              <span class="text-xs px-3 py-1 rounded-full bg-[var(--surface-2)] text-[var(--text)] border border-[var(--border)] font-medium">Web Architecture</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-[var(--surface-2)] text-[var(--text)] border border-[var(--border)] font-medium">Technical SEO</span>
+              <span class="text-xs px-3 py-1 rounded-full bg-[var(--surface-2)] text-[var(--text)] border border-[var(--border)] font-medium">GEO &amp; AI Search</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- THREE CORE COMMITMENTS -->
+      <div class="p-8 sm:p-12 rounded-3xl bg-[var(--surface)] border border-[var(--border)] space-y-8">
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Client Commitments</span>
+          <h2 class="serif text-2xl sm:text-3xl font-extrabold text-[var(--text)]">Three Commitments, In Writing</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div class="p-6 rounded-2xl bg-[var(--surface-2)]/50 border border-[var(--border)] space-y-3">
+            <span class="text-3xl">🛡️</span>
+            <h4 class="text-base font-bold text-[var(--text)]">Fixed Scope &amp; Pricing</h4>
+            <p class="text-xs text-[var(--muted)] leading-relaxed">The proposal we agree upon is the price you pay. No hidden retainer fees, licensing markups, or unexpected billing.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[var(--surface-2)]/50 border border-[var(--border)] space-y-3">
+            <span class="text-3xl">🔑</span>
+            <h4 class="text-base font-bold text-[var(--text)]">100% Asset Ownership</h4>
+            <p class="text-xs text-[var(--muted)] leading-relaxed">Source code, domain DNS, analytics access, and ad manager accounts are registered entirely under your company name.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[var(--surface-2)]/50 border border-[var(--border)] space-y-3">
+            <span class="text-3xl">⏱️</span>
+            <h4 class="text-base font-bold text-[var(--text)]">24-Hour Direct Response</h4>
+            <p class="text-xs text-[var(--muted)] leading-relaxed">Direct founder access via WhatsApp and Email. Inquiries, sprint adjustments, and bugs are handled within 1 business day.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[var(--surface)] via-[var(--surface-2)] to-[var(--surface)] border border-[var(--border)] text-center space-y-6">
+        <h3 class="serif text-2xl sm:text-4xl font-extrabold text-[var(--text)]">
+          Partner directly with agency founders.
+        </h3>
+        <p class="text-sm text-[var(--muted)] max-w-xl mx-auto">
+          We accept a select number of client engagements each quarter to preserve hands-on execution and high engineering standards.
+        </p>
+        <div>
+          <a href="/contact" class="btn btn-primary text-sm font-bold py-3.5 px-8 rounded-full shadow-xl shadow-[var(--accent)]/20 inline-flex items-center gap-2">
+            <span>Start a Conversation</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[var(--border)] bg-[var(--surface)] py-12 px-6 sm:px-10 lg:px-16 mt-20">
+    <div class="w-full max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/assets/images/logo.jpeg" alt="PixelRoot Logo" class="w-10 h-10 rounded-xl object-cover border border-[var(--border)]">
+          <span class="serif text-2xl font-black">PixelRoot</span>
+        </div>
+        <p class="text-xs text-[var(--muted)] mt-3 leading-relaxed">Building digital foundations rooted in search performance, custom web engineering, and brand strategy.</p>
+        <div id="footer-social-container" class="flex items-center gap-3 pt-3"></div>
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Pages</p>
+        <ul class="text-xs space-y-2 text-[var(--muted)]">
+          <li><a href="/services" class="hover:text-[var(--accent)] transition-colors">Services</a></li>
+          <li><a href="/about" class="hover:text-[var(--accent)] transition-colors">About Us</a></li>
+          <li><a href="/blogs" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--accent)] transition-colors">Blogs</a></li>
+          <li><a href="/contact" class="hover:text-[var(--accent)] transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-xs font-bold uppercase tracking-wider text-[var(--text)]">Solutions</p>
+        <ul class="text-xs space-y-2 text-[var(--muted)]">
+          <li>Technical SEO Audits</li>
+          <li>Generative Engine Optimization (GEO)</li>
+          <li>FastAPI &amp; Web Architecture</li>
+          <li>Meta &amp; Google Ads</li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-xs font-bold uppercase tracking-wider text-[var(--text)]">Get in Touch</p>
+        <ul id="footer-contact-container" class="text-xs space-y-2 text-[var(--muted)]"></ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

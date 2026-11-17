@@ -1,12 +1,13 @@
 import logging
 import os
+import re
 from datetime import datetime
 from pathlib import Path
 
 import motor.motor_asyncio
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, PlainTextResponse
+from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, EmailStr, Field
 
@@ -96,6 +97,72 @@ async def submit_lead(data: LeadSchema):
             detail="Unable to submit proposal request."
         ) from exc
 
+# Link map for route resolution
+LINK_ROUTER = {
+    "why choose pixel root": "/about",
+    "explore our services": "/services",
+    "about pixel root": "/about",
+    "contact us": "/contact",
+    "our website development process": "/services",
+    "our linkedin solutions": "/services",
+    "our content marketing solutions": "/blogs",
+    "our social media services": "/services",
+}
+
+@app.get("/api/faqs")
+async def get_faqs_from_text():
+    faq_path = FRONTEND_DIR / "assets" / "faq.txt"
+    if not faq_path.exists():
+        return JSONResponse(content=[], status_code=200)
+
+    try:
+        content = faq_path.read_text(encoding="utf-8")
+        blocks = [block.strip() for block in re.split(r"\n\s*\n", content) if block.strip()]
+
+        parsed_faqs = []
+        for block in blocks:
+            lines = [line.strip() for line in block.split("\n") if line.strip()]
+            if not lines:
+                continue
+
+            question = lines[0]
+            answer_lines = []
+            link_text = None
+            link_url = None
+
+            for line in lines[1:]:
+                if re.match(r"^internal link:", line, re.IGNORECASE):
+                    raw_link = re.sub(
+                        r"^internal link:\s*",
+                        "",
+                        line,
+                        flags=re.IGNORECASE,
+                    ).strip()
+                    clean_text = re.sub(r"\s*\(.*?\)\s*$", "", raw_link).strip()
+                    link_text = clean_text
+
+                    lookup_key = clean_text.replace("→", "").strip().lower()
+                    link_url = LINK_ROUTER.get(lookup_key, "/contact")
+                else:
+                    answer_lines.append(line)
+
+            parsed_faqs.append({
+                "question": question,
+                "answer": " ".join(answer_lines),
+                "linkText": link_text,
+                "linkUrl": link_url,
+            })
+
+        return JSONResponse(
+            content=parsed_faqs,
+            headers={"Cache-Control": "no-cache, no-store, must-revalidate"},
+        )
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to parse faq.txt: {exc}",
+        ) from exc
+
 async def track_visit():
     try:
         await visitors_collection.insert_one({
@@ -120,12 +187,33 @@ async def serve_contact_text():
         return file_path.read_text(encoding="utf-8")
     return "email=hello@pixelroot.in\nphone=+91 98765 43210\nlocation=Chennai / Ambattur, Tamil Nadu, India"
 
-# Serve index.html
 @app.get("/")
-async def serve_index():
+async def serve_home():
     await track_visit()
-    index_path = FRONTEND_DIR / "index.html"
-    return FileResponse(index_path)
+    return FileResponse(FRONTEND_DIR / "index.html")
+
+@app.get("/services")
+async def serve_services_page():
+    services_path = FRONTEND_DIR / "services.html"
+    if not services_path.exists():
+        logger.error("services.html NOT found at path: %s", services_path)
+        raise HTTPException(
+            status_code=404,
+            detail=f"services.html was not found at '{services_path}'. Check if it was saved inside the frontend folder."
+        )
+    return FileResponse(services_path)
+
+@app.get("/about")
+async def serve_about_page():
+    return FileResponse(FRONTEND_DIR / "about.html")
+
+@app.get("/blogs")
+async def serve_blogs_page():
+    return FileResponse(FRONTEND_DIR / "blogs.html")
+
+@app.get("/contact")
+async def serve_contact_page():
+    return FileResponse(FRONTEND_DIR / "contact.html")
 
 if __name__ == "__main__":
     import uvicorn

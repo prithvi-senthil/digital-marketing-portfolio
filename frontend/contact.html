@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us & Proposal Requests | PixelRoot Digital</title>
+  <meta name="description" content="Get in touch with PixelRoot Digital for technical web audits, custom proposals, and organic search growth partnerships.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-[var(--bg)] text-[var(--text)] transition-colors duration-200">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[var(--bg)]/80 border-b border-[var(--border)] py-4 px-6 sm:px-10 lg:px-16">
+    <div class="w-full max-w-[1600px] mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3.5 group">
+        <img src="/assets/images/logo.jpeg" alt="PixelRoot Logo" class="w-12 h-12 md:w-14 md:h-14 rounded-2xl object-cover border-2 border-[var(--border)] shadow-lg shadow-[var(--accent)]/20 transition-transform group-hover:scale-105" />
+        <div class="flex items-baseline gap-2">
+          <span class="serif text-2xl md:text-3xl font-black tracking-tight text-[var(--text)]">PixelRoot</span>
+          <span class="text-[10px] md:text-xs font-black px-2 py-0.5 rounded-md bg-[var(--accent)] text-white tracking-widest uppercase">DIGITAL</span>
+        </div>
+      </a>
+      
+      <nav class="hidden lg:flex items-center space-x-10">
+        <a href="/services" class="text-sm font-semibold hover:text-[var(--accent)] transition-colors">Services</a>
+        <a href="/about" class="text-sm font-semibold hover:text-[var(--accent)] transition-colors">About</a>
+        <a href="/blogs" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold hover:text-[var(--accent)] transition-colors">Blogs</a>
+        <a href="/contact" class="text-sm font-semibold text-[var(--accent)] transition-colors">Contact Us</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <button id="openProposalModalBtn" type="button" class="btn btn-primary hidden sm:inline-flex text-sm py-2.5 px-5">Request a Proposal</button>
+        
+        <div class="theme-dropdown relative">
+          <button id="themeToggleBtn" class="btn btn-line !p-2.5 rounded-full" aria-label="Toggle theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          </button>
+          <div id="themeMenu" class="theme-menu">
+            <button class="theme-option" data-value="light">☀️ Light</button>
+            <button class="theme-option" data-value="dark">🌙 Dark</button>
+            <button class="theme-option" data-value="system">💻 System</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="py-12 md:py-20 px-6 sm:px-10 lg:px-16 w-full space-y-24">
+    <div class="w-full max-w-[1600px] mx-auto space-y-16">
+      
+      <!-- HERO -->
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface-2)] border border-[var(--border)]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></span>
+          <span class="text-[11px] font-bold tracking-widest uppercase text-[var(--accent)]">Connect Directly</span>
+        </div>
+        <h1 class="serif text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[var(--text)]">
+          Start Your Technical Engagement
+        </h1>
+        <p class="text-sm md:text-base text-[var(--muted)] leading-relaxed">
+          Tell us about your project requirements, target goals, and existing digital bottlenecks. We review every submission within 24 hours.
+        </p>
+      </div>
+
+      <!-- CONTACT DETAILS CHIPS (Populated from contact.txt) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] text-center shadow-sm">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-[var(--surface-2)] flex items-center justify-center text-xl mb-4 border border-[var(--border)]">📧</div>
+          <h3 class="serif text-lg font-bold text-[var(--text)]">Direct Email</h3>
+          <p class="text-xs text-[var(--muted)] mt-1">Written proposals &amp; architecture briefs</p>
+          <a id="card-contact-email" href="#" class="inline-block mt-4 text-xs sm:text-sm font-bold text-[var(--accent)] hover:underline break-all">Loading...</a>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] text-center shadow-sm">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-[var(--surface-2)] flex items-center justify-center text-xl mb-4 border border-[var(--border)]">💬</div>
+          <h3 class="serif text-lg font-bold text-[var(--text)]">WhatsApp / Phone</h3>
+          <p class="text-xs text-[var(--muted)] mt-1">Direct inquiries &amp; instant discussions</p>
+          <a id="card-contact-phone" href="#" class="inline-block mt-4 text-xs sm:text-sm font-bold text-[var(--accent)] hover:underline">Loading...</a>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] text-center shadow-sm">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-[var(--surface-2)] flex items-center justify-center text-xl mb-4 border border-[var(--border)]">📍</div>
+          <h3 class="serif text-lg font-bold text-[var(--text)]">Location &amp; Delivery</h3>
+          <p class="text-xs text-[var(--muted)] mt-1">Global delivery &amp; local consultations</p>
+          <p id="card-contact-location" class="mt-4 text-xs sm:text-sm font-bold text-[var(--text)]">Loading...</p>
+        </div>
+      </div>
+
+      <!-- SPLIT FORM & PROCESS CONTAINER -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        
+        <!-- Left: Engagement Form -->
+        <div class="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-[var(--surface)]/90 backdrop-blur-xl border border-[var(--border)] shadow-xl shadow-[var(--accent)]/5 space-y-6">
+          <div class="space-y-1">
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Project Application</span>
+            <h3 class="serif text-2xl font-bold text-[var(--text)]">Submit Project Requirements</h3>
+            <p class="text-xs text-[var(--muted)]">Receive an itemized technical proposal and delivery timeline.</p>
+          </div>
+
+          <form id="contactPageForm" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="cName">Your Name *</label>
+                <input type="text" id="cName" required placeholder="e.g. Rahul Sharma" class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-xs sm:text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="cBiz">Brand / Company *</label>
+                <input type="text" id="cBiz" required placeholder="e.g. Acme Retail" class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-xs sm:text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="cEmail">Email Address *</label>
+                <input type="email" id="cEmail" required placeholder="name@company.com" class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-xs sm:text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="cPhone">Phone / WhatsApp *</label>
+                <input type="tel" id="cPhone" required placeholder="+91 98765 43210" class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-xs sm:text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="cService">Primary Service Interest</label>
+              <select id="cService" class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-xs sm:text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+                <option value="Web Dev & Technical SEO">Website Development &amp; Technical SEO</option>
+                <option value="Generative Engine Optimization (GEO)">Generative Engine Optimization (GEO/AEO)</option>
+                <option value="Meta & Google Ads">Meta &amp; Google Ads Management</option>
+                <option value="Social Media & LinkedIn">Social Media &amp; LinkedIn Growth</option>
+                <option value="Full Scope Partnership">Full-Scope Digital Partnership</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="cBudget">Project Budget Range</label>
+              <select id="cBudget" name="budget" class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-xs sm:text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors">
+                <option value="15k_30k">₹15,000 - ₹30,000 (Starter)</option>
+                <option value="30k_60k" selected>₹30,000 - ₹60,000 (Growth Retainer)</option>
+                <option value="60k_1L">₹60,000 - ₹1,00,000 (Full-Stack Scaling)</option>
+                <option value="custom">Custom Milestone Scope</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-[var(--text)] mb-1" for="cNotes">Project Scope &amp; Target Objectives</label>
+              <textarea id="cNotes" rows="4" placeholder="Briefly describe your current digital bottlenecks and what you wish to achieve..." class="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-2)] border border-[var(--border)] text-xs sm:text-sm text-[var(--text)] focus:border-[var(--accent)] focus:outline-none transition-colors"></textarea>
+            </div>
+
+            <div id="contactStatus" class="hidden text-xs font-semibold text-center py-2 rounded-lg"></div>
+
+            <button type="submit" class="w-full btn btn-primary text-xs sm:text-sm font-bold py-3 px-6 shadow-xl shadow-[var(--accent)]/20">
+              Submit Inbound Application
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: What Happens Next & Pre-requisites -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] space-y-5">
+            <span class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Engagement Protocol</span>
+            <h3 class="serif text-xl font-bold text-[var(--text)]">What Happens Next?</h3>
+
+            <div class="space-y-4 text-xs sm:text-sm text-[var(--muted)]">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center font-bold text-xs text-[var(--accent)] shrink-0">1</span>
+                <p><strong class="text-[var(--text)]">Discovery Review:</strong> We analyze your domain, search presence, and tech stack within 24 hours.</p>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center font-bold text-xs text-[var(--accent-2)] shrink-0">2</span>
+                <p><strong class="text-[var(--text)]">Direct Consultation:</strong> We set up a 20-minute strategy call directly with the agency founders.</p>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-[var(--surface-2)] border border-[var(--border)] flex items-center justify-center font-bold text-xs text-[var(--accent)] shrink-0">3</span>
+                <p><strong class="text-[var(--text)]">Fixed Proposal:</strong> You receive an itemized proposal in INR with clear milestones and no hidden retainers.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-[var(--surface)] border border-[var(--border)] space-y-3">
+            <h4 class="text-sm font-bold text-[var(--text)]">Direct Founder Contact:</h4>
+            <p class="text-xs text-[var(--muted)] leading-relaxed">
+              Prefer an immediate voice or message chat without filling out a form? Reach our leads directly via WhatsApp for fast responses.
+            </p>
+            <div class="pt-2">
+              <a href="https://wa.me/910000000000" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-[#25D366] hover:underline">
+                <span>Open Direct WhatsApp Chat</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[var(--border)] bg-[var(--surface)] py-12 px-6 sm:px-10 lg:px-16 mt-20">
+    <div class="w-full max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/assets/images/logo.jpeg" alt="PixelRoot Logo" class="w-10 h-10 rounded-xl object-cover border border-[var(--border)]">
+          <span class="serif text-2xl font-black">PixelRoot</span>
+        </div>
+        <p class="text-xs text-[var(--muted)] mt-3 leading-relaxed">Building digital foundations rooted in search performance, custom web engineering, and brand strategy.</p>
+        <div id="footer-social-container" class="flex items-center gap-3 pt-3"></div>
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-xs font-bold uppercase tracking-wider text-[var(--accent)]">Pages</p>
+        <ul class="text-xs space-y-2 text-[var(--muted)]">
+          <li><a href="/services" class="hover:text-[var(--accent)] transition-colors">Services</a></li>
+          <li><a href="/about" class="hover:text-[var(--accent)] transition-colors">About Us</a></li>
+          <li><a href="/blogs" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--accent)] transition-colors">Blogs</a></li>
+          <li><a href="/contact" class="hover:text-[var(--accent)] transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-xs font-bold uppercase tracking-wider text-[var(--text)]">Capabilities</p>
+        <ul class="text-xs space-y-2 text-[var(--muted)]">
+          <li>Technical SEO Audits</li>
+          <li>Generative Engine Optimization (GEO)</li>
+          <li>Custom Web Architecture</li>
+          <li>Meta &amp; Google Ads</li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-xs font-bold uppercase tracking-wider text-[var(--text)]">Get in Touch</p>
+        <ul id="footer-contact-container" class="text-xs space-y-2 text-[var(--muted)]"></ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
